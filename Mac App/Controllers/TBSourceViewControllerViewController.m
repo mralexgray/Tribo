@@ -25,10 +25,10 @@
 }
 
 - (void)doubleClickRow:(NSOutlineView *)outlineView {
-    NSArray *assets = [self.assetTree selectedObjects];
-    NSArray *assetURLS = [assets valueForKey:@"URL"];
+    NSA*assets = [self.assetTree selectedObjects];
+    NSA*assetURLS = [assets valueForKey:@"URL"];
     [assetURLS enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        NSArray *singleFileArray = @[obj];
+        NSA*singleFileArray = @[obj];
         BOOL fileOpened = [[NSWorkspace sharedWorkspace] openURLs:singleFileArray withAppBundleIdentifier:nil options:NSWorkspaceLaunchAsync additionalEventParamDescriptor:nil launchIdentifiers:NULL];
         if(!fileOpened){
             [[NSWorkspace sharedWorkspace] openURLs:singleFileArray withAppBundleIdentifier:@"com.apple.TextEdit" options:NSWorkspaceLaunchAsync additionalEventParamDescriptor:nil launchIdentifiers:NULL];

@@ -22,7 +22,7 @@
 
 @interface CZAFileWatcher : NSObject
 
-typedef void(^TBFileWatcherChangesHandler)(NSArray *changedURLs);
+typedef void(^TBFileWatcherChangesHandler)(NSA*changedURLs);
 
 /*!
  Create a file watcher, configured to watch an array of filesystem URLs and call
@@ -33,7 +33,7 @@ typedef void(^TBFileWatcherChangesHandler)(NSArray *changedURLs);
 	A block to execute whenever changes to the specified URLs occur. The handler 
 	will be passed an array of the URLs that were affected by the change.
  */
-+ (instancetype)fileWatcherForURLs:(NSArray *)URLs
++ (instancetype)fileWatcherForURLs:(NSA*)URLs
 					changesHandler:(TBFileWatcherChangesHandler)changesHandler;
 
 /*!
@@ -51,6 +51,6 @@ typedef void(^TBFileWatcherChangesHandler)(NSArray *changedURLs);
 /*!
  The filesystem URLs watched by the file watcher.
  */
-@property (readonly) NSArray *URLs;
+@property (readonly) NSA*URLs;
 
 @end

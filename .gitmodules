@@ -1,9 +1,20 @@
 [submodule "Dependencies/GRMustache"]
 	path = Dependencies/GRMustache
 	url = https://github.com/groue/GRMustache.git
+	ignore = dirty
 [submodule "Dependencies/Sundown"]
 	path = Dependencies/Sundown
 	url = https://github.com/CarterA/sundown.git
+	ignore = dirty
 [submodule "Dependencies/CurlHandle"]
 	path = Dependencies/CurlHandle
 	url = git@github.com:CarterA/CurlHandle.git
+	ignore = dirty
+[submodule "cartera.me"]
+	path = cartera.me
+	url = https://github.com/mralexgray/cartera.me.git
+	ignore = dirty
+[submodule "Dependencies/ACEView"]
+	path = Dependencies/ACEView
+	url = https://github.com/mralexgray/ACEView.git
+	ignore = dirty

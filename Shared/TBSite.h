@@ -133,11 +133,11 @@
 	@property posts
 		An array of parsed TBPost objects.
  */
-@property (nonatomic, strong) NSMutableArray *posts;
+@property (nonatomic, strong) NSMA *posts;
 
-@property (nonatomic, strong) NSArray *templateAssets;
-@property (nonatomic, strong) NSArray *sourceAssets;
-@property (nonatomic, strong) NSDictionary *metadata;
+@property (nonatomic, strong) NSA*templateAssets;
+@property (nonatomic, strong) NSA*sourceAssets;
+@property (nonatomic, strong) NSD *metadata;
 @property (nonatomic, weak) id <TBSiteDelegate> delegate;
 
 @property (nonatomic, assign, getter=isPublished) BOOL published;

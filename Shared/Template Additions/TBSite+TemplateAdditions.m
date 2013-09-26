@@ -15,7 +15,7 @@
 - (TBPost *)latestPost {
 	return self.posts[0];
 }
-- (NSArray *)recentPosts {
+- (NSA*)recentPosts {
 	if ([self.posts count] == 0) return @[];
 	NSUInteger recentPostCount = [self.metadata[TBSiteNumberOfRecentPostsMetadataKey] unsignedIntegerValue];
 	if (!recentPostCount) recentPostCount = 5;
@@ -23,7 +23,7 @@
 	return [self.posts subarrayWithRange:NSMakeRange(0, recentPostCount)];
 }
 - (NSString *)XMLDate {
-	NSDate *date = [NSDate date];
+	NSDate *date = NSDate.date;
 	NSDateFormatter *XMLDateFormatter = [NSDateFormatter tb_cachedDateFormatterFromString:@"yyyy'-'MM'-'dd'T'HH':'mm':'ssZ"];
 	NSMutableString *mutableDateString = [[XMLDateFormatter stringFromDate:date] mutableCopy];
 	[mutableDateString insertString:@":" atIndex:mutableDateString.length - 2];

@@ -10,7 +10,7 @@
 @protocol TBTabViewDelegate;
 
 @interface TBTabView : NSView
-@property (nonatomic, strong) NSArray *titles;
+@property (nonatomic, strong) NSA*titles;
 @property (nonatomic, assign) NSUInteger selectedIndex;
 @property (nonatomic, unsafe_unretained) IBOutlet id <TBTabViewDelegate> delegate;
 @end

@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Opt-6 Products, LLC. All rights reserved.
 //
 
-#import "HTTPConnection.h"
+//#import "HTTPConnection.h"
 
 @interface TBSocketConnection : HTTPConnection
 @end

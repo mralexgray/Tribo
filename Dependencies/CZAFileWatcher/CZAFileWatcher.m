@@ -22,11 +22,11 @@ static void eventCallback(ConstFSEventStreamRef eventStreamRef, void *callbackIn
 
 #pragma mark - Initialization and Deallocation
 
-+ (instancetype)fileWatcherForURLs:(NSArray *)URLs changesHandler:(TBFileWatcherChangesHandler)changesHandler {
++ (instancetype)fileWatcherForURLs:(NSA*)URLs changesHandler:(TBFileWatcherChangesHandler)changesHandler {
 	return [[[self class] alloc] initForURLs:URLs changesHandler:changesHandler];
 }
 
-- (id)initForURLs:(NSArray *)URLs changesHandler:(TBFileWatcherChangesHandler)changesHandler {
+- (id)initForURLs:(NSA*)URLs changesHandler:(TBFileWatcherChangesHandler)changesHandler {
 	self = [super init];
 	if (self) {
 		_URLs = [URLs copy];
@@ -61,7 +61,9 @@ static void eventCallback(ConstFSEventStreamRef eventStreamRef, void *callbackIn
 	}
 	_eventStreamIsRunning = NO;
 }
-
+#ifdef release
+#undef release
+#endif
 - (void)cza_createEventStream {
 	FSEventStreamContext context = {
 		.version = 0,
@@ -77,12 +79,12 @@ static void eventCallback(ConstFSEventStreamRef eventStreamRef, void *callbackIn
 
 #pragma mark - URL Processing
 
-- (NSArray *)cza_directoryURLs {
-	NSArray *URLs = self.URLs;
-	NSMutableArray *directoryURLs = [NSMutableArray arrayWithCapacity:[URLs count]];
+- (NSA*)cza_directoryURLs {
+	NSA*URLs = self.URLs;
+	NSMA *directoryURLs = [NSMA arrayWithCapacity:[URLs count]];
 	for (NSURL *URL in self.URLs) {
 		BOOL isDirectory = NO;
-		BOOL exists = [[NSFileManager defaultManager] fileExistsAtPath:URL.path isDirectory:&isDirectory];
+		BOOL exists = [AZFILEMANAGER fileExistsAtPath:URL.path isDirectory:&isDirectory];
 		if (isDirectory && exists)
 			[directoryURLs addObject:URL];
 		else if (!isDirectory && exists)
@@ -95,8 +97,8 @@ static void eventCallback(ConstFSEventStreamRef eventStreamRef, void *callbackIn
 
 static void eventCallback(ConstFSEventStreamRef eventStreamRef, void *callbackInfo, size_t numberOfEvents, void *eventPaths, const FSEventStreamEventFlags eventFlags[], const FSEventStreamEventId eventIds[]) {
 	CZAFileWatcher *fileWatcher = (__bridge CZAFileWatcher *)callbackInfo;
-	NSArray *paths = (__bridge NSArray *)eventPaths;
-	NSMutableArray *URLs = [NSMutableArray arrayWithCapacity:(NSUInteger)numberOfEvents];
+	NSA*paths = (__bridge NSA*)eventPaths;
+	NSMA *URLs = [NSMA arrayWithCapacity:(NSUInteger)numberOfEvents];
 	for (NSString *path in paths) {
 		NSURL *URL = [NSURL fileURLWithPath:path];
 		[URLs addObject:URL];

@@ -6,23 +6,24 @@
 //  Copyright (c) 2012 The Tribo Authors.
 //  See the included License.md file.
 //
+#import <WebKit/WebKit.h>
 
-@class TBViewController, TBAddPostSheetController;
+@class 					TBViewController , 
+				 TBAddPostSheetController ;
+@interface 		TBSiteWindowController : NSWindowController <NSWindowDelegate>
+@property (nonatomic) 			NSA* viewControllers;
+@property (readonly) TBViewController * selectedViewController;
+@property (nonatomic)      NSUInteger   selectedViewControllerIndex;
 
-@interface TBSiteWindowController : NSWindowController <NSWindowDelegate>
-@property (nonatomic, strong) NSArray *viewControllers;
-@property (readonly) TBViewController *selectedViewController;
-@property (nonatomic, assign) NSUInteger selectedViewControllerIndex;
+- (IBAction) switchToPosts:    (id)x;
+- (IBAction) switchToTemplates:(id)x;
+- (IBAction) switchToSources:  (id)x;
 
-- (IBAction)switchToPosts:(id)sender;
-- (IBAction)switchToTemplates:(id)sender;
-- (IBAction)switchToSources:(id)sender;
+- (IBAction) showAddPostSheet: (id)x;
 
-- (IBAction)showAddPostSheet:(id)sender;
-
-- (IBAction)showActionMenu:(id)sender;
-- (IBAction)preview:(id)sender;
-- (IBAction)publish:(id)sender;
-- (IBAction)showSettingsSheet:(id)sender;
+- (IBAction) showActionMenu:	 (id)x;
+- (IBAction) preview:			 (id)x;
+- (IBAction) publish:			 (id)x;
+- (IBAction) showSettingsSheet:(id)x;
 
 @end

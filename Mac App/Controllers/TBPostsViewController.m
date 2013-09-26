@@ -17,8 +17,8 @@
 #import "NSResponder+TBAdditions.h"
 
 @interface TBPostsViewController () <TBTableViewDelegate>
-- (void)moveURLsToTrash:(NSArray *)URLs;
-- (void)undoMoveToTrashForURLs:(NSDictionary *)URLs;
+- (void)moveURLsToTrash:(NSA*)URLs;
+- (void)undoMoveToTrashForURLs:(NSD *)URLs;
 @end
 
 @implementation TBPostsViewController
@@ -62,13 +62,13 @@
 }
 
 - (void)tableView:(NSTableView *)tableView shouldDeleteRows:(NSIndexSet *)rowIndexes {
-	NSArray *selectedPosts = [self.document.site.posts objectsAtIndexes:rowIndexes];
-	NSArray *postURLs = [selectedPosts valueForKey:@"URL"];
+	NSA*selectedPosts = [self.document.site.posts objectsAtIndexes:rowIndexes];
+	NSA*postURLs = [selectedPosts valueForKey:@"URL"];
 	[self moveURLsToTrash:postURLs];
 }
 
-- (void)moveURLsToTrash:(NSArray *)URLs {
-	[[NSWorkspace sharedWorkspace] recycleURLs:URLs completionHandler:^(NSDictionary *newURLs, NSError *error) {
+- (void)moveURLsToTrash:(NSA*)URLs {
+	[[NSWorkspace sharedWorkspace] recycleURLs:URLs completionHandler:^(NSD *newURLs, NSError *error) {
 		
 		if (error) [self tb_presentErrorOnMainQueue:error];
 		
@@ -82,12 +82,12 @@
 	}];
 }
 
-- (void)undoMoveToTrashForURLs:(NSDictionary *)URLs {
+- (void)undoMoveToTrashForURLs:(NSD *)URLs {
 	[URLs enumerateKeysAndObjectsUsingBlock:^(id key, id object, BOOL *stop) {
 		NSURL *originalURL = key;
 		NSURL *trashURL = object;
 		NSError *error = nil;
-		BOOL success = [[NSFileManager defaultManager] moveItemAtURL:trashURL toURL:originalURL error:&error];
+		BOOL success = [AZFILEMANAGER moveItemAtURL:trashURL toURL:originalURL error:&error];
 		if (!success) [self tb_presentErrorOnMainQueue:error];
 		NSError *postParsingError = nil;
 		success = [self.document.site parsePosts:&postParsingError];

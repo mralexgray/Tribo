@@ -8,7 +8,7 @@
 
 #import "TBSocketConnection.h"
 #import "TBWebSocket.h"
-#import "HTTPDataResponse.h"
+//#import "HTTPDataResponse.h"
 
 @interface TBSocketConnection () <WebSocketDelegate>
 @property (nonatomic, strong) WebSocket *socket;

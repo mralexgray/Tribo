@@ -80,6 +80,6 @@
 		    <link rel="stylesheet" href="/stylesheets/{{stylesheetName}}.css">
 		  {{/stylesheets}}
  */
-@property (nonatomic, strong) NSArray *stylesheets;
+@property (nonatomic, strong) NSA*stylesheets;
 
 @end

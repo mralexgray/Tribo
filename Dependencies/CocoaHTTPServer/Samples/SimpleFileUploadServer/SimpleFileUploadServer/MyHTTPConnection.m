@@ -46,7 +46,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
 	
 	if([method isEqualToString:@"POST"] && [path isEqualToString:@"/upload.html"]) {
         // here we need to make sure, boundary is set in header
-        NSString* contentType = [request headerField:@"Content-Type"];
+        NSString* contentType = [request valueForHeaderField:@"Content-Type"];
         NSUInteger paramsSeparator = [contentType rangeOfString:@";"].location;
         if( NSNotFound == paramsSeparator ) {
             return NO;
@@ -72,11 +72,11 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
             
             if( [paramName isEqualToString: @"boundary"] ) {
                 // let's separate the boundary from content-type, to make it more handy to handle
-                [request setHeaderField:@"boundary" value:paramValue];
+                [request setValue:paramValue forHeaderField:@"boundary"];
             }
         }
         // check if boundary specified
-        if( nil == [request headerField:@"boundary"] )  {
+        if( nil == [request valueForHeaderField:@"boundary"] )  {
             return NO;
         }
         return YES;
@@ -116,7 +116,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
 	HTTPLogTrace();
 	
 	// set up mime parser
-    NSString* boundary = [request headerField:@"boundary"];
+    NSString* boundary = [request valueForHeaderField:@"boundary"];
     parser = [[MultipartFormDataParser alloc] initWithBoundary:boundary formEncoding:NSUTF8StringEncoding];
     parser.delegate = self;
 

@@ -20,7 +20,7 @@ int main (int argumentCount, const char *arguments[]) {
 	@autoreleasepool {
 		
 		printHeader("Compiling website...");
-		TBSite *site = [TBSite siteWithRoot:[NSURL fileURLWithPath:[NSFileManager defaultManager].currentDirectoryPath]];
+		TBSite *site = [TBSite siteWithRoot:[NSURL fileURLWithPath:AZFILEMANAGER.currentDirectoryPath]];
         
         NSError *error = nil;
         if (![site process:&error]) {
@@ -36,7 +36,7 @@ int main (int argumentCount, const char *arguments[]) {
 		printHeader("Opening website in default web browser...");
 		LSOpenCFURLRef((__bridge CFURLRef)[NSURL URLWithString:@"http://localhost:4000/"], NULL);
 		
-		CZAFileWatcher *watcher = [CZAFileWatcher fileWatcherForURLs:@[site.sourceDirectory, site.postsDirectory, site.templatesDirectory] changesHandler:^(NSArray *changedURLs) {
+		CZAFileWatcher *watcher = [CZAFileWatcher fileWatcherForURLs:@[site.sourceDirectory, site.postsDirectory, site.templatesDirectory] changesHandler:^(NSA*changedURLs) {
 			[site process:nil];
 			[server refreshPages];
 		}];

@@ -60,8 +60,8 @@
 	NSTextCheckingResult *stylesheetsResult = [stylesheetsRegex firstMatchInString:secondLine options:0 range:NSMakeRange(0, secondLine.length)];
 	if (stylesheetsResult) {
 		NSString *rawMatch = [secondLine substringWithRange:[stylesheetsResult rangeAtIndex:1]];
-		NSArray *stylesheetNames = [rawMatch componentsSeparatedByString:@", "];
-		NSMutableArray *stylesheetDictionaries = [NSMutableArray array];
+		NSA*stylesheetNames = [rawMatch componentsSeparatedByString:@", "];
+		NSMA *stylesheetDictionaries = NSMA.new;
 		for (NSString *stylesheetName in stylesheetNames) {
 			[stylesheetDictionaries addObject:@{@"stylesheetName": stylesheetName}];
 		}

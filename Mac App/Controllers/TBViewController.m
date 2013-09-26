@@ -11,21 +11,9 @@
 
 @implementation TBViewController
 
-- (id)init {
-	NSString *nibName = [self defaultNibName];
-	self = [super initWithNibName:nibName bundle:[NSBundle mainBundle]];
-	return self;
-}
-
-- (NSString *)defaultNibName {
-	return [self className];
-}
-
-- (void)viewDidLoad {}
-
-- (void)loadView {
-	[super loadView];
-	[self viewDidLoad];
-}
+-        (id) init 				{	return self = [super initWithNibName:self.defaultNibName bundle:NSBundle.mainBundle];	}
+- (NSString*) defaultNibName 	{ return self.className; }
+-      (void) viewDidLoad 		{}
+-      (void) loadView 			{	[super loadView];	[self viewDidLoad];	}
 
 @end

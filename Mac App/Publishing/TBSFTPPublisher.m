@@ -75,14 +75,14 @@ NSString * const TBSFTPPublisherIdentityBookmarkKey = @"TBSFTPPublisherIdentityB
 	NSURL *bundledRsyncURL = [[NSBundle mainBundle] URLForResource:@"rsync" withExtension:@""];
 	rsync.launchPath = bundledRsyncURL.path;
 	
-	NSPipe *outputPipe = [NSPipe pipe];
+	NSPipe *outputPipe = NSPipe.pipe;
 	rsync.standardOutput = outputPipe;
-	NSPipe *errorPipe = [NSPipe pipe];
+	NSPipe *errorPipe = NSPipe.pipe;
 	rsync.standardError = errorPipe;
 	NSPipe *nullFileHandle = [NSFileHandle fileHandleWithNullDevice];
 	rsync.standardInput = nullFileHandle;
 	
-	NSMutableArray *arguments = [NSMutableArray array];
+	NSMA *arguments = NSMA.new;
 	
 	[arguments addObject:@"--recursive"];
 	[arguments addObject:@"--times"];
@@ -106,7 +106,7 @@ NSString * const TBSFTPPublisherIdentityBookmarkKey = @"TBSFTPPublisherIdentityB
 	environment[@"SSH_AUTH_SOCK"] = @"";
 	
 	NSString *appSupportDirectory = [NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"Tribo"];
-	[[NSFileManager defaultManager] createDirectoryAtPath:appSupportDirectory withIntermediateDirectories:YES attributes:nil error:nil];
+	[AZFILEMANAGER createDirectoryAtPath:appSupportDirectory withIntermediateDirectories:YES attributes:nil error:nil];
 	NSString *knownHostsPath = [appSupportDirectory stringByAppendingPathComponent:@"known_hosts"];
 	NSString *knownHostsOption = [NSString stringWithFormat:@"'UserKnownHostsFile \"%@\"'", knownHostsPath];
 	
@@ -140,7 +140,7 @@ NSString * const TBSFTPPublisherIdentityBookmarkKey = @"TBSFTPPublisherIdentityB
 		NSString *availableOutput = [[NSString alloc] initWithData:fileHandle.availableData encoding:NSASCIIStringEncoding];
 		NSString *lastLine = [[availableOutput componentsSeparatedByCharactersInSet:newlineCharacterSet] lastObject];
 		if (![lastLine isEqualToString:lastNewLine]) {
-			NSArray *components = [lastLine componentsSeparatedByCharactersInSet:whitespaceCharacterSet];
+			NSA*components = [lastLine componentsSeparatedByCharactersInSet:whitespaceCharacterSet];
 			for (NSString *component in components) {
 				if (![component hasSuffix:@"%"]) continue;
 				NSInteger integerValue = [component integerValue];

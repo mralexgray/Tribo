@@ -42,8 +42,8 @@
 	
 	[FTPSession createDirectoryAtPath:outputRoot permissions:permissions withIntermediateDirectories:NO error:nil];
 	
-	NSDirectoryEnumerator *enumerator = [[NSFileManager defaultManager] enumeratorAtURL:self.site.destination includingPropertiesForKeys:@[NSURLIsDirectoryKey, NSURLNameKey] options:0 errorHandler:nil];
-	NSMutableArray *directories = [NSMutableArray array]; // Array of remote paths
+	NSDirectoryEnumerator *enumerator = [AZFILEMANAGER enumeratorAtURL:self.site.destination includingPropertiesForKeys:@[NSURLIsDirectoryKey, NSURLNameKey] options:0 errorHandler:nil];
+	NSMA *directories = NSMA.new; // Array of remote paths
 	NSMutableDictionary *files = [NSMutableDictionary dictionary]; // Dictionary of remote paths (keys) and local file URLs (objects)
 	for (NSURL *URL in enumerator) {
 		

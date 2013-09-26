@@ -19,7 +19,7 @@
 
 @interface TBSite (TemplateAdditions)
 @property (nonatomic, readonly) TBPost *latestPost;
-@property (nonatomic, readonly) NSArray *recentPosts;
+@property (nonatomic, readonly) NSA*recentPosts;
 @property (nonatomic, readonly) NSString *XMLDate;
 @property (nonatomic, readonly) NSString *name;
 @property (nonatomic, readonly) NSString *author;

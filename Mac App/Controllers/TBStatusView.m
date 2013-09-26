@@ -19,7 +19,7 @@
 @property (nonatomic, strong) NSColor *graphiteBorderColor;
 @property (nonatomic, strong) NSColor *graphiteHighlightColor;
 @property (nonatomic, assign) IBOutlet NSTextField *titleField;
-@property (nonatomic, strong) NSArray *observers;
+@property (nonatomic, strong) NSA*observers;
 @end
 
 @implementation TBStatusView

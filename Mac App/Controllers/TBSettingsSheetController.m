@@ -28,8 +28,8 @@
 @property (nonatomic, assign) IBOutlet NSSecureTextField *passwordField;
 @property (nonatomic, assign) IBOutlet NSTextField *remotePathField;
 
-@property (nonatomic, strong) NSArray *availableFilters;
-@property (nonatomic, strong) NSMutableArray *enabledFilters;
+@property (nonatomic, strong) NSA*availableFilters;
+@property (nonatomic, strong) NSMA *enabledFilters;
 
 - (void)didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
 - (IBAction)save:(id)sender;
@@ -38,7 +38,7 @@
 
 - (void)loadFormValues;
 - (void)updatePlaceholders;
-- (NSDictionary *)dictionaryOfFormValues;
+- (NSD *)dictionaryOfFormValues;
 - (NSString *)passwordFromKeychain;
 - (void)setStoredPassword:(NSString *)newPassword;
 - (void)addNewKeychainItemForPassword:(NSString *)newPassword;
@@ -68,7 +68,7 @@
 
 - (void)loadFormValues {
 	
-	NSDictionary *metadata = self.site.metadata;
+	NSD *metadata = self.site.metadata;
 	
 	self.siteNameField.stringValue = metadata[TBSiteNameMetadataKey] ?: @"";
 	self.authorField.stringValue = metadata[TBSiteAuthorMetadataKey] ?: @"";
@@ -95,14 +95,14 @@
 }
 
 - (void)loadFilters {
-	NSURL *scriptsDirectory = [[NSFileManager defaultManager] URLForDirectory:NSApplicationScriptsDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:nil];
-	NSArray *filterURLs = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:scriptsDirectory includingPropertiesForKeys:@[NSURLNameKey] options:NSDirectoryEnumerationSkipsHiddenFiles error:nil];
-	NSMutableArray *filterNames = [NSMutableArray array];
+	NSURL *scriptsDirectory = [AZFILEMANAGER URLForDirectory:NSApplicationScriptsDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:nil];
+	NSA*filterURLs = [AZFILEMANAGER contentsOfDirectoryAtURL:scriptsDirectory includingPropertiesForKeys:@[NSURLNameKey] options:NSDirectoryEnumerationSkipsHiddenFiles error:nil];
+	NSMA *filterNames = NSMA.new;
 	for (NSURL *filterURL in filterURLs) {
 		[filterNames addObject:[filterURL resourceValuesForKeys:@[NSURLNameKey] error:nil][NSURLNameKey]];
 	}
 	self.availableFilters = filterNames;
-	self.enabledFilters = [self.site.metadata[TBSiteFilters] mutableCopy] ?: [NSMutableArray array];
+	self.enabledFilters = [self.site.metadata[TBSiteFilters] mutableCopy] ?: NSMA.new;
 }
 
 - (void)updatePlaceholders {
@@ -123,7 +123,7 @@
 	[self updatePlaceholders];
 }
 
-- (NSDictionary *)dictionaryOfFormValues {
+- (NSD *)dictionaryOfFormValues {
 	
 	NSNumber *numberOfRecentPosts = @([self.numberOfRecentPostsField.stringValue integerValue]);
 	NSString *protocol = @"";
@@ -131,7 +131,7 @@
 		protocol = TBSiteProtocolFTP;
 	else if ([self.uploadViaPopUp.titleOfSelectedItem isEqualToString:@"SFTP"])
 		protocol = TBSiteProtocolSFTP;
-	NSDictionary *values = @{TBSiteNameMetadataKey: self.siteNameField.stringValue,
+	NSD *values = @{TBSiteNameMetadataKey: self.siteNameField.stringValue,
 							TBSiteAuthorMetadataKey: self.authorField.stringValue,
 							TBSiteBaseURLMetadataKey: self.baseURLField.stringValue,
 							TBSiteNumberOfRecentPostsMetadataKey: numberOfRecentPosts,

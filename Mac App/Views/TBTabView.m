@@ -16,7 +16,7 @@
 @interface TBTabView () {
 	TBTab *_clickedTab;
 }
-@property (nonatomic, strong) NSMutableArray *tabs;
+@property (nonatomic, strong) NSMA *tabs;
 - (void)tabReceivedMouseDown:(TBTab *)tab;
 - (void)tabReceivedMouseUp:(TBTab *)tab;
 @end
@@ -26,8 +26,8 @@
 
 @implementation TBTabView
 
-- (void)setTitles:(NSArray *)titles {
-	self.tabs = [NSMutableArray arrayWithCapacity:titles.count];
+- (void)setTitles:(NSA*)titles {
+	self.tabs = [NSMA arrayWithCapacity:titles.count];
 	CGFloat tabWidth = ceil(self.frame.size.width/titles.count);
 	CGFloat tabHeight = self.frame.size.height;
 	[titles enumerateObjectsUsingBlock:^(NSString *title, NSUInteger index, BOOL *stop) {

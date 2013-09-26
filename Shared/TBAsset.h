@@ -29,7 +29,7 @@
 	 @return
 		An array of assets, or nil if an error was encountered.
  */
-+ (NSArray *)assetsFromDirectory:(NSURL*)URL error:(NSError **)error;
++ (NSA*)assetsFromDirectory:(NSURL*)URL error:(NSError **)error;
 
 /*!
  @property URL
@@ -54,7 +54,7 @@
 	@property children
 		An array of child assets, or nil if the asset is a leaf.
  */
-@property (nonatomic, strong) NSArray *children;
+@property (nonatomic, strong) NSA*children;
 
 /*!
 	@return
