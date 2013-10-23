@@ -10,5 +10,5 @@
 #import <Cocoa/Cocoa.h>
 
 @interface NSResponder (TBAdditions)
-- (void)tb_presentErrorOnMainQueue:(NSError *)error;
+- (void)tb_presentErrorOnMainQueue:(NSError*)error;
 @end

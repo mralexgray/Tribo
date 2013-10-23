@@ -23,8 +23,8 @@ typedef void(^TBPublisherErrorHandler)(NSError *error);
 @property (nonatomic, copy) TBPublisherCompletionHandler completionHandler;
 @property (nonatomic, copy) TBPublisherErrorHandler errorHandler;
 
-+ (instancetype)publisherWithSite:(TBSite *)site;
-- (instancetype)initWithSite:(TBSite *)site;
++ (instancetype)publisherWithSite:(TBSite*)site;
+- (instancetype)initWithSite:(TBSite*)site;
 - (void)publish;
 
 @end

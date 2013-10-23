@@ -14,5 +14,5 @@
 @property (nonatomic, weak) IBOutlet NSArrayController *assets;
 @property (nonatomic, weak) IBOutlet NSTableView *tableView;
 
-- (void)doubleClickRow:(NSTableView *)outlineView;
+- (void)doubleClickRow:(NSTableView*)outlineView;
 @end

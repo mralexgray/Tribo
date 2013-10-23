@@ -14,14 +14,14 @@
 NSString * const TBSFTPPublisherIdentityBookmarkKey = @"TBSFTPPublisherIdentityBookmark";
 
 @interface TBSFTPPublisher ()
-- (NSURL *)userSelectedIdentityURL;
-- (NSString *)passwordFromKeychain;
+- (NSURL*)userSelectedIdentityURL;
+- (NSString*)passwordFromKeychain;
 @property (nonatomic, strong) NSURL *identityURL;
 @end
 
 @implementation TBSFTPPublisher
 
-- (NSURL *)userSelectedIdentityURL {
+- (NSURL*)userSelectedIdentityURL {
 	
 	NSData *bookmarkData = [[NSUserDefaults standardUserDefaults] dataForKey:TBSFTPPublisherIdentityBookmarkKey];
 	NSURL *identityURL = [NSURL URLByResolvingBookmarkData:bookmarkData options:NSURLBookmarkResolutionWithSecurityScope relativeToURL:nil bookmarkDataIsStale:NULL error:nil];
@@ -46,7 +46,7 @@ NSString * const TBSFTPPublisherIdentityBookmarkKey = @"TBSFTPPublisherIdentityB
 	
 }
 
-- (NSString *)passwordFromKeychain {
+- (NSString*)passwordFromKeychain {
 	
 	char *passwordBuffer = NULL;
 	UInt32 passwordLength = 0;

@@ -11,7 +11,7 @@
 #import <Quartz/Quartz.h>
 
 @implementation TBTableView
-- (void)keyDown:(NSEvent *)event {
+- (void)keyDown:(NSEvent*)event {
 	NSString* key = [event charactersIgnoringModifiers];
 	if([key isEqual:@" "]) {
 		if ([QLPreviewPanel sharedPreviewPanel].isKeyWindow) {
@@ -28,22 +28,22 @@
 		[super keyDown:event];
 	}
 }
-- (BOOL)acceptsPreviewPanelControl:(QLPreviewPanel *)panel {
+- (BOOL)acceptsPreviewPanelControl:(QLPreviewPanel*)panel {
 	return YES;
 }
-- (void)beginPreviewPanelControl:(QLPreviewPanel *)panel {
+- (void)beginPreviewPanelControl:(QLPreviewPanel*)panel {
 	panel.delegate = (id <QLPreviewPanelDelegate>)self.delegate;
 	panel.dataSource = (id <QLPreviewPanelDataSource>)self.delegate;
 }
-- (void)endPreviewPanelControl:(QLPreviewPanel *)panel {
+- (void)endPreviewPanelControl:(QLPreviewPanel*)panel {
 	return;
 }
 - (IBAction)deleteSelectedRows:(id)sender {
-	NSObject <TBTableViewDelegate> *delegate = (NSObject <TBTableViewDelegate> *)self.delegate;
+	NSObject <TBTableViewDelegate> *delegate = (NSObject <TBTableViewDelegate>*)self.delegate;
 	if (![delegate respondsToSelector:@selector(tableView:shouldDeleteRows:)]) return;
 	[delegate tableView:self shouldDeleteRows:self.selectedRowIndexes];
 }
-- (BOOL)validateMenuItem:(NSMenuItem *)menuItem {
+- (BOOL)validateMenuItem:(NSMenuItem*)menuItem {
 	if (menuItem.action != @selector(deleteSelectedRows:)) return YES;
 	return ([self.selectedRowIndexes count] ? YES : NO); 
 }

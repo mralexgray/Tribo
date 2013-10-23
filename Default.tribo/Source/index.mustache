@@ -1,26 +1,18 @@
 <!-- Articles -->
 <!-- Stylesheets: post -->
-
 {{#site.recentPosts}}
 <article class="post">
     <header class="post-header">
-        <h2><a href="{{relativeURL}}" title="{{title}}">{{title}}</a></h2>
-        <span class="date"><a href="{{relativeURL}}" title="{{title}}">{{dateString}}</a></span>
+        <h1><a href="{{relativeURL}}" title="[Permalink] {{title}}">{{title}}</a></h1>
+        <span class="date">{{dateString}}</span>
     </header>
     <section class="post-content">
         {{{summary}}}
     </section>
-    {{#summary}}
-    <p class="continue-reading"><a href="[Permalink] {{relativeURL}}">Continue reading &raquo;</a></p>
-    {{/summary}}
+    <p class="continue-reading"><a href="{{relativeURL}}">Continue reading &raquo;</a></p>
 </article>
 <p class="divider">~</p>
 {{/site.recentPosts}}
-
-{{^site.recentPosts}}
-<p>0 posts</p>
-{{/site.recentPosts}}
-
 <section id="bottomNav">
-    <a href="/archives">Archives &raquo;</a>
+    <a href="/archives">More articles &raquo;</a>
 </section>

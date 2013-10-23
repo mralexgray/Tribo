@@ -1,11 +1,5 @@
-//
+
 //  TBSite.m
-//  Tribo
-//
-//  Created by Carter Allen on 9/25/11.
-//  Copyright (c) 2012 The Tribo Authors.
-//  See the included License.md file.
-//
 
 #import "TBSite.h"
 #import "TBPost.h"
@@ -14,18 +8,18 @@
 #import "GRMustache.h"
 #import "NSDateFormatter+TBAdditions.h"
 
-@interface TBSite ()
-@property (nonatomic, strong) GRMustacheTemplate *postTemplate;
-@property (nonatomic, strong) NSString *rawDefaultTemplate;
+@interface 								 TBSite	 ( )
+@property (nonatomic) GRMustacheTemplate * postTemplate;
+@property (nonatomic) 			  NSString * rawDefaultTemplate;
 @end
 
 @implementation TBSite
 
 #pragma mark - Initialization
 
-+ (instancetype)siteWithRoot:(NSURL *)root {		TBSite *site = TBSite.new;
++ (instancetype)siteWithRoot:(NSURL*)root {		TBSite *site = TBSite.new;
 	
-	site.root 					=	 root;
+	site.root 					=  root;
 	site.destination 			= [root URLByAppendingPathComponent:@"Output" 	 isDirectory:YES];
 	site.sourceDirectory 	= [root URLByAppendingPathComponent:@"Source"	 isDirectory:YES];
 	site.postsDirectory 		= [root URLByAppendingPathComponent:@"Posts"		 isDirectory:YES];
@@ -85,27 +79,25 @@
 		}
 		return NO;
 	}
-	
 	// Parse the contents of the Posts directory into individual TBPost objects.
-	NSMA *posts = NSMA.new;  NSA*postsDirectoryContents;
-	if (!(postsDirectoryContents = [AZFILEMANAGER contentsOfDirectoryAtURL:self.postsDirectory includingPropertiesForKeys:nil 
-																						options:NSDirectoryEnumerationSkipsHiddenFiles error:error]))
+	NSA*postsDirectoryContents;
+	
+	if (!(postsDirectoryContents = [AZFILEMANAGER contentsOfDirectoryAtURL:self.postsDirectory includingPropertiesForKeys:nil  options:NSDirectoryEnumerationSkipsHiddenFiles error:error]))
 		return NO;
-	for (NSURL *postURL in postsDirectoryContents) {
-		TBPost *post = [TBPost postWithURL:postURL inSite:self error:error];		[post parseMarkdownContent];
-		if (post) [posts addObject:post];
-	}
-	posts = posts.reverseObjectEnumerator.allObjects.mutableCopy;
-	self.posts = posts;
+		
+	NSA* posts = [postsDirectoryContents cw_mapArray:^id(NSURL *postURL){
+		
+		TBPost *post = [TBPost postWithURL:postURL inSite:self error:error];
+		if (post) [post parseMarkdownContent];
+		return post ?: nil;
+	}];
+	if (posts) self.posts = posts.reversed.mutableCopy;
 	
    // Prepare the asset object tree
-	self.templateAssets = [TBAsset assetsFromDirectory:self.templatesDirectory error:error];
-	if (!self.templateAssets) return NO;
-	self.sourceAssets = [TBAsset assetsFromDirectory:self.sourceDirectory error:error];
-	if (!self.sourceAssets) return NO;
-	
-	return YES;
-	
+	return (!(self.templateAssets = [TBAsset assetsFromDirectory:self.templatesDirectory error:error]))
+		||	 (!(self.sourceAssets = [TBAsset assetsFromDirectory:self.sourceDirectory error:error])) 
+		? NO : (!self.sourceAssets) ? NO : YES;
+
 }
 
 - (BOOL)writePosts:(NSError **)error {
@@ -191,7 +183,7 @@
 	return YES;
 }
 
-- (BOOL)processSourceFile:(NSURL *)URL error:(NSError **)error {
+- (BOOL)processSourceFile:(NSURL*)URL error:(NSError **)error {
 	NSString *extension = [URL pathExtension];
 	NSString *relativePath = [URL.path stringByReplacingOccurrencesOfString:self.sourceDirectory.path withString:@""];
 	NSURL *destinationURL = [[self.destination URLByAppendingPathComponent:relativePath] URLByStandardizingPath];
@@ -211,7 +203,7 @@
 	return YES;
 }
 
-- (BOOL)writePage:(TBPage *)page toDestination:(NSURL *)destination error:(NSError **)error {
+- (BOOL)writePage:(TBPage*)page toDestination:(NSURL*)destination error:(NSError **)error {
 	if (!page) return NO;
 	NSString *rawPageTemplate = [self.rawDefaultTemplate stringByReplacingOccurrencesOfString:@"{{{content}}}" withString:page.content];
 	GRMustacheTemplate *pageTemplate = [GRMustacheTemplate templateFromString:rawPageTemplate error:error];
@@ -225,7 +217,7 @@
 
 #pragma mark - Filters
 
-- (NSString *)filteredContent:(NSString *)content fromFile:(NSURL *)file error:(NSError **)error {
+- (NSString*)filteredContent:(NSString*)content fromFile:(NSURL*)file error:(NSError **)error {
 	
 	NSA*filterPaths = self.metadata[TBSiteFilters];
 	if (!filterPaths || ![filterPaths count])
@@ -258,8 +250,9 @@
 		dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
 		if (blockError) {	if (error) *error = blockError;	return nil; }
 		NSData *standardErrorData = standardError.fileHandleForReading.readDataToEndOfFile;
-		if (standardErrorData.length > 0) 
-			return *error = error ? TBError.filterStandardError(filterURL, $UTF8(standardErrorData.bytes)) : *error, nil;
+		if (standardErrorData.length) {
+			if (error) *error = TBError.filterStandardError(filterURL, $UTF8(standardErrorData.bytes)); return nil;
+		}
 		NSData *standardOutputData = [standardOutput.fileHandleForReading readDataToEndOfFile];
 		content = standardOutputData.length ?  [NSString.alloc initWithBytes:standardOutputData.bytes length:standardOutputData.length encoding:NSUTF8StringEncoding] : content;
 	}
@@ -268,7 +261,7 @@
 
 #pragma mark - Site Modification
 
-- (NSURL *)addPostWithTitle:(NSString *)title slug:(NSString *)slug error:(NSError **)error {
+- (NSURL*)addPostWithTitle:(NSString*)title slug:(NSString*)slug error:(NSError **)error {
 
 	NSString *filename 	= $(@"%@-%@", [[NSDateFormatter tb_cachedDateFormatterFromString:@"yyyy-MM-dd"] stringFromDate:NSDate.date], slug);
 	NSURL *destination 	= [[self.postsDirectory URLByAppendingPathComponent:filename] URLByAppendingPathExtension:@"md"];
@@ -276,7 +269,7 @@
 	return ![contents writeToURL:destination atomically:YES encoding:NSUTF8StringEncoding error:error] ||
 			 ![self parsePosts:error] ? nil : destination;
 }
-- (void)setMetadata:(NSD *)metadata {	_metadata = metadata;
+- (void)setMetadata:(NSD*)metadata {	_metadata = metadata;
 	[self.metadata writeToURL:[self.root URLByAppendingPathComponent:@"Info.plist" isDirectory:NO] atomically:NO];
 	if (self.delegate && [self.delegate respondsToSelector:@selector(metadataDidChangeForSite:)])
 		[self.delegate metadataDidChangeForSite:self];

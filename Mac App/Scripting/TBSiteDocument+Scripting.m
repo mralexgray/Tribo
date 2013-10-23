@@ -13,46 +13,25 @@
 #import "TBHTTPServer.h"
 
 @implementation TBSiteDocument (Scripting)
-- (void)startPreviewFromScript:(NSScriptCommand *)command {
+
+- (void)startPreviewFromScript:(NSScriptCommand*)command {	if (self.server.isRunning) return;	[command suspendExecution];
+ 	
+	self.postsViewController ?	[self startPreview:^(NSURL *localURL, NSError *error) {
 	
-	if (self.server.isRunning) return;
-	
-	[command suspendExecution];
-	
-	TBSiteWindowController *windowController = (self.windowControllers)[0];
-	TBPostsViewController *postsViewController = nil;
-	for (TBViewController *viewController in windowController.viewControllers) {
-		if ([viewController class] == [TBPostsViewController class]) {
-			postsViewController = (TBPostsViewController *)viewController;
-			continue;
-		}
-	}
-	if (!postsViewController) return;
-	
-	[self startPreview:^(NSURL *localURL, NSError *error) {
-		if (error) {
-			command.scriptErrorNumber = (int)error.code;
-			command.scriptErrorString = error.localizedDescription;
-		}
+		if (error) [command setScriptErrorNumber:(int)error.code], [command setScriptErrorString:error.localizedDescription];
 		[command resumeExecutionWithResult:nil];
-	}];
-	
+	}] : nil;
 }
-- (void)stopPreviewFromScript:(NSScriptCommand *)command {
-	
-	if (!self.server.isRunning) return;
-	
-	TBSiteWindowController *windowController = (self.windowControllers)[0];
-	TBPostsViewController *postsViewController = nil;
-	for (TBViewController *viewController in windowController.viewControllers) {
-		if ([viewController class] == [TBPostsViewController class]) {
-			postsViewController = (TBPostsViewController *)viewController;
-			continue;
-		}
-	}
-	if (!postsViewController) return;
-	
-	[self stopPreview];
-	
-}
+- (void)stopPreviewFromScript:(NSScriptCommand*)command {  if (!self.server.isRunning || !self.postsViewController) return;	[self stopPreview]; }
+
+- (TBPostsViewController*)postsViewController { return [[self.windowControllers[0]viewControllers] firstObjectOfClass:TBPostsViewController.class]; }
 @end
+
+
+//	for (TBViewController *viewController in windowController.viewControllers) {
+//		if ([viewController class] == [ class]) {
+//			postsViewController = (TBPostsViewController*)viewController;
+//			continue;
+//		}
+//	}
+//	TBSiteWindowController *windowController	 = (

@@ -23,7 +23,7 @@
 	return self;
 }
 
-- (void)runModalForWindow:(NSWindow *)window site:(TBSite *)site {
+- (void)runModalForWindow:(NSWindow*)window site:(TBSite*)site {
 	
 	[self loadWindow];
 	self.site = site;

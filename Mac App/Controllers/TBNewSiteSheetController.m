@@ -13,7 +13,7 @@
 @property (nonatomic, copy) TBNewSiteSheetCompletionHandler handler;
 @property (nonatomic, weak) IBOutlet NSTextField *nameField;
 @property (nonatomic, weak) IBOutlet NSTextField *authorField;
-- (void)didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
+- (void)didEndSheet:(NSWindow*)sheet returnCode:(NSInteger)returnCode contextInfo:(void*)contextInfo;
 - (IBAction)next:(id)sender;
 - (IBAction)cancel:(id)sender;
 @end
@@ -25,7 +25,7 @@
     return self;
 }
 
-- (void)runModalForWindow:(NSWindow *)window completionHandler:(TBNewSiteSheetCompletionHandler)handler {
+- (void)runModalForWindow:(NSWindow*)window completionHandler:(TBNewSiteSheetCompletionHandler)handler {
 	self.handler = handler;
 	[NSApp beginSheet:self.window modalForWindow:window modalDelegate:self didEndSelector:@selector(didEndSheet:returnCode:contextInfo:) contextInfo:nil];
 }
@@ -54,7 +54,7 @@
     [super windowDidLoad];
 }
 
-- (void)didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
+- (void)didEndSheet:(NSWindow*)sheet returnCode:(NSInteger)returnCode contextInfo:(void*)contextInfo {
 	if (self.handler) {
 		if (returnCode == NSCancelButton) {
 			self.handler(nil, nil, nil);

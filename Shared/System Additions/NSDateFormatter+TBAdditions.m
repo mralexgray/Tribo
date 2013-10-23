@@ -12,7 +12,7 @@ NSString * const TBDateFormatterCachePrefix = @"TBDateFormatter:";
 
 @implementation NSDateFormatter (TBAdditions)
 
-+ (instancetype)tb_cachedDateFormatterFromString:(NSString *)format {
++ (instancetype)tb_cachedDateFormatterFromString:(NSString*)format {
 	NSString *cacheKey = [TBDateFormatterCachePrefix stringByAppendingString:format];
 	NSDateFormatter *dateFormatter = [[self tb_dateFormatterCache] objectForKey:cacheKey];
 	if (!dateFormatter) {
@@ -23,7 +23,7 @@ NSString * const TBDateFormatterCachePrefix = @"TBDateFormatter:";
 	return dateFormatter;
 }
 
-+ (NSCache *)tb_dateFormatterCache {
++ (NSCache*)tb_dateFormatterCache {
 	static NSCache *TBDateFormatterCache;
 	if (!TBDateFormatterCache)
 		TBDateFormatterCache = [NSCache new];

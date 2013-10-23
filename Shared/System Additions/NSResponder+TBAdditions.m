@@ -12,7 +12,7 @@
 
 @implementation NSResponder (TBAdditions)
 
-- (void)tb_presentErrorOnMainQueue:(NSError *)error {
+- (void)tb_presentErrorOnMainQueue:(NSError*)error {
 	MAWeakSelfDeclare();
 	dispatch_async(dispatch_get_main_queue(), ^{
 		MAWeakSelfImport();

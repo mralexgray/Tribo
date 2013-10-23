@@ -14,5 +14,5 @@
 @end
 
 @protocol TBTableViewDelegate <NSTableViewDelegate>
-- (void)tableView:(NSTableView *)tableView shouldDeleteRows:(NSIndexSet *)rowIndexes;
+- (void)tableView:(NSTableView*)tableView shouldDeleteRows:(NSIndexSet*)rowIndexes;
 @end

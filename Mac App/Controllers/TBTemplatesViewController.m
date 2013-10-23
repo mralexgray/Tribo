@@ -13,11 +13,11 @@
 
 @implementation TBTemplatesViewController
 
-- (NSString *)defaultNibName {
+- (NSString*)defaultNibName {
 	return @"TBTemplatesView";
 }
 
-- (NSString *)title {
+- (NSString*)title {
 	return @"Templates";
 }
 
@@ -31,7 +31,7 @@
     return [self.document.site.templateAssets sortedArrayUsingDescriptors:nameSort];
 }
 
-- (void)doubleClickRow:(NSOutlineView *)outlineView {
+- (void)doubleClickRow:(NSOutlineView*)outlineView {
     NSA*assets = [self.assets selectedObjects];
     NSA*assetURLS = [assets valueForKey:@"URL"];
     [assetURLS enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {

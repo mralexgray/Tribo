@@ -9,5 +9,5 @@
 #import "TBPage.h"
 
 @interface TBPage (LiveReload)
-- (NSString *)livereload;
+- (NSString*)livereload;
 @end

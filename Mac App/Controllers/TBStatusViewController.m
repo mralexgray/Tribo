@@ -16,12 +16,12 @@
 
 @implementation TBStatusViewController
 
-- (NSString *)defaultNibName {
+- (NSString*)defaultNibName {
 	return @"TBStatusView";
 }
 
 - (IBAction)openLink:(id)sender {
-	[[NSWorkspace sharedWorkspace] openURL:self.link];
+//	[[NSWorkspace sharedWorkspace] openURL:self.link];
 }
 
 - (IBAction)stop:(id)sender {

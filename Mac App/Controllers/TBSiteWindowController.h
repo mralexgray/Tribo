@@ -1,19 +1,44 @@
-//
-//  TBSiteWindowController.h
-//  Tribo
-//
-//  Created by Carter Allen on 10/21/11.
-//  Copyright (c) 2012 The Tribo Authors.
-//  See the included License.md file.
-//
-#import <WebKit/WebKit.h>
 
-@class 					TBViewController , 
-				 TBAddPostSheetController ;
-@interface 		TBSiteWindowController : NSWindowController <NSWindowDelegate>
-@property (nonatomic) 			NSA* viewControllers;
-@property (readonly) TBViewController * selectedViewController;
-@property (nonatomic)      NSUInteger   selectedViewControllerIndex;
+#import <WebKit/WebKit.h>
+#import <ACEView/ACEView.h>
+#import "AZWebPreviewViewController.h"
+#import "TBPostsViewController.h"
+#import "TBTemplatesViewController.h"
+#import "TBSourceViewControllerViewController.h"
+#import "TBAddPostSheetController.h"
+#import "TBSettingsSheetController.h"
+#import "TBPublishSheetController.h"
+#import "TBStatusViewController.h"
+#import "TBTabView.h"
+#import "TBSiteDocument.h"
+#import "TBSite.h"
+#import "TBMacros.h"
+#import "NSResponder+TBAdditions.h"
+
+
+@interface 		TBSiteWindowController : NSWindowController <NSWindowDelegate>//,TBTabViewDelegate>//ACEViewDelegate>
+
+@property (weak) IBOutlet 				           NSView * accessoryView, * containerView, * currentView;
+@property (weak) IBOutlet 				  		 	  NSMenu * actionMenu;
+@property (weak) IBOutlet 			  			  TBTabView * tabView;
+
+@property (weak) IBOutlet							 ACEView * aceView;
+@property (weak) IBOutlet 					 AGNSSplitView * leftRight, * topBottom;
+@property (weak) IBOutlet 	AZWebPreviewViewController * webPreviewController;
+
+@property			           TBAddPostSheetController * addPostSheetController;
+@property                   TBSettingsSheetController * settingsSheetController;
+@property                    TBPublishSheetController * publishSheetController;
+@property           				 TBStatusViewController * statusViewController;
+
+
+@property (strong)					  					  NSA * viewControllers;
+@property (readonly)	 					 TBViewController * selectedViewController;
+@property (nonatomic)    			 				    NSUI   selectedViewControllerIndex;
+
+
+- (void) toggleStatusView;
+
 
 - (IBAction) switchToPosts:    (id)x;
 - (IBAction) switchToTemplates:(id)x;

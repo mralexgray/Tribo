@@ -8,18 +8,100 @@
 
 #import "AZWebPreviewViewController.h"
 
-@interface AZWebPreviewViewController ()
-
-@end
 
 @implementation AZWebPreviewViewController
+@end
+@implementation ACEView (AZACEView) 
+//@dynamic URL, content;
+
+//+ (instancetype) viewWithFrame:(NSR)r withContent:(id)stuff mode:(ACEMode)m { AZACEView *aceView = [self.alloc initWithFrame:r];
+//- (void) awakeFromNib {
+//}	
+
+- (void) setURL:(NSURL*)URL {
+
+//   NSString*mode =[self performString:@"stringByEvaluatingJavaScriptOnMainThreadFromString:"
+//									withObject:$(@"editor.getModeForPath(%@);", URL.absoluteString)];
+//	self.mode = [ACEModeNames modeFromString:mode];
+
+//	XX(self.mode);
+//	XX([ACEModeNames humanNameForMode:self.mode]);
+	NSS* s = [NSS stringWithContentsOfURL:URL encoding:NSUTF8StringEncoding error:nil];
+//	XX([self string]);
+	XX(self.frame);
+	[self setString: s];
+
+}
+//- (NSS*) evaluate:(NSS*)script {
+//
+//	return [self performString:@"stringByEvaluatingJavaScriptOnMainThreadFromString:" withObject:script];
+//}
+- (ACEMode) mode {   return ACEModeHandlebars;
+//	NSString *m = [self evaluate:@"editor.getSession().session.getMode();"];
+//	XX(m);
+//	return [ACEModeNames modeFromString:m];
+}
+- (void) textDidChange:(NSNotification*)notification {
+	NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
+//- (void) setContent:(id)x { //mode:(ACEMode)m { 
+//	
+//	AZBlockSelf(me);
+//												   : [x ISKINDA:NSS.class] ? x : nil;
+//  	
+//	[x ISKINDA:NSURL.class]	? ^{
+//		me.string = [NSS stringWithContentsOfURL:x encoding:NSUTF8StringEncoding error:nil];
+//		me.mode   = [x path].pathExtension == 
+//
+//}(): 
+//														   : [x ISKINDA:NSS.class] ? x : nil;
+//	self.theme					= ACEThemeTomorrowNight;
+//	self.showInvisibles 		= YES;
+//}
 
 
-//- (NSString *)defaultNibName {
+//- (void) applicationDidFinishLaunching:(NSNotification*)aNotification {
+//	NSString *htmlFilePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"HTML5" ofType:@"html"];
+//	NSString *html = [NSString stringWithContentsOfFile:htmlFilePath encoding:NSUTF8StringEncoding error:nil];
+//	[aceView setString:html];
+//	//    [aceView setString:[NSString stringWithContentsOfURL:[NSURL URLWithString:@"https://github.com/faceleg/ACEView"] encoding:NSUTF8StringEncoding
+//	//                                                   error:nil]];
+//	[aceView setDelegate:self];
+//	[aceView setMode:ACEModeHTML];
+//	[aceView setTheme:ACEThemeXcode];
+//	[aceView setShowPrintMargin:NO];
+//	[aceView setShowInvisibles:YES];
+//}
+//
+//- (void) awakeFromNib {
+//	[syntaxMode addItemsWithTitles:[ACEModeNames humanModeNames]];
+//	[syntaxMode selectItemAtIndex:ACEModeHTML];
+//	
+//	[theme addItemsWithTitles:[ACEThemeNames humanThemeNames]];
+//	[theme selectItemAtIndex:ACEThemeXcode];
+//}
+//
+//- (IBAction) syntaxModeChanged:(id)sender {
+//	[aceView setMode:[syntaxMode indexOfSelectedItem]];
+//}
+//
+//- (IBAction) themeChanged:(id)sender {
+//	[aceView setTheme:[theme indexOfSelectedItem]];
+//}
+//
+//- (void) textDidChange:(NSNotification*)notification {
+//	// Handle text changes
+//	NSLog(@"%s", __PRETTY_FUNCTION__);
+//}
+
+
+
+//- (NSString*)defaultNibName {
 //	return @"AZWebPreviewView";
 //}
 //
-//- (NSString *)title {
+//- (NSString*)title {
 //	return @"Preview";
 //}
 //
@@ -33,7 +115,7 @@
 //    return [self.document.site.templateAssets sortedArrayUsingDescriptors:nameSort];
 //}
 //
-//- (void)doubleClickRow:(NSOutlineView *)outlineView {
+//- (void)doubleClickRow:(NSOutlineView*)outlineView {
 //    NSA*assets = [self.assets selectedObjects];
 //    NSA*assetURLS = [assets valueForKey:@"URL"];
 //    [assetURLS enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {

@@ -9,7 +9,7 @@
 #import "TBSite+Scripting.h"
 
 @implementation TBSite (Scripting)
-- (NSScriptObjectSpecifier *)objectSpecifierForPost:(TBPost *)post {
+- (NSScriptObjectSpecifier*)objectSpecifierForPost:(TBPost*)post {
 	NSScriptObjectSpecifier *postSpecifier = nil;
 	NSUInteger postIndex = [self.posts indexOfObject:post];
 	if (postIndex != NSNotFound) {
@@ -18,7 +18,7 @@
 	}
 	return postSpecifier;
 }
-- (NSScriptObjectSpecifier *)objectSpecifier {
+- (NSScriptObjectSpecifier*)objectSpecifier {
 	NSScriptObjectSpecifier *documentSpecifier = [[[NSDocumentController sharedDocumentController] documentForURL:self.root] objectSpecifier];
 	NSPropertySpecifier *siteSpecifier = [[NSPropertySpecifier alloc] initWithContainerClassDescription:documentSpecifier.keyClassDescription containerSpecifier:documentSpecifier key:@"site"];
 	return siteSpecifier;

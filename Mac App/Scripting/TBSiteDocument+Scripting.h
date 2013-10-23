@@ -9,6 +9,6 @@
 #import "TBSiteDocument.h"
 
 @interface TBSiteDocument (Scripting)
-- (void)startPreviewFromScript:(NSScriptCommand *)command;
-- (void)stopPreviewFromScript:(NSScriptCommand *)command;
+- (void)startPreviewFromScript:(NSScriptCommand*)command;
+- (void)stopPreviewFromScript:(NSScriptCommand*)command;
 @end

@@ -13,7 +13,7 @@
 #import "CURLFTPSession.h"
 
 @interface TBFTPPublisher ()
-- (NSString *)passwordFromKeychain;
+- (NSString*)passwordFromKeychain;
 @property (nonatomic, strong) NSMutableData *data;
 @end
 
@@ -103,7 +103,7 @@
 	
 }
 
-- (NSString *)passwordFromKeychain {
+- (NSString*)passwordFromKeychain {
 	char *passwordBuffer = NULL;
 	UInt32 passwordLength = 0;
 	NSString *serverName = (self.site.metadata)[TBSiteServerKey];

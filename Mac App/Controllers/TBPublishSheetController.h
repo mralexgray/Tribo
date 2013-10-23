@@ -13,5 +13,5 @@
 
 @interface TBPublishSheetController : NSWindowController
 @property (nonatomic, strong) TBSite *site;
-- (void)runModalForWindow:(NSWindow *)window site:(TBSite *)site;
+- (void)runModalForWindow:(NSWindow*)window site:(TBSite*)site;
 @end

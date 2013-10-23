@@ -16,44 +16,54 @@
 #import "TBHTTPServer.h"
 #import "NSResponder+TBAdditions.h"
 
+#import "AZWebPreviewViewController.h"
+
+
 @interface TBPostsViewController () <TBTableViewDelegate>
-- (void)moveURLsToTrash:(NSA*)URLs;
-- (void)undoMoveToTrashForURLs:(NSD *)URLs;
+- (void) moveURLsToTrash:			(NSA*)URLs;
+- (void) undoMoveToTrashForURLs:	(NSD*)URLs;
 @end
 
 @implementation TBPostsViewController
 
 #pragma mark - View Controller Configuration
 
-- (NSString *)defaultNibName {
-	return @"TBPostsView";
-}
-
-- (NSString *)title {
-	return @"Posts";
-}
+- (NSString*)defaultNibName 	{	return @"TBPostsView";	}
+- (NSString*)title 				{	return @"Posts";			}
 
 - (void)viewDidLoad {
+	self.postTableView.delegate = self;
 	self.postTableView.target = self;
 	self.postTableView.doubleAction = @selector(editPost:);
 }
 
-#pragma mark - Actions
+- (void) tableViewSelectionDidChange:(NSNotification*)notification {  AZTALK(@"vageen");
 
-- (IBAction)editPost:(id)sender {
-	TBSiteDocument *document = (TBSiteDocument *)self.document;
-	TBPost *clickedPost = (document.site.posts)[[self.postTableView clickedRow]];
-	[[NSWorkspace sharedWorkspace] openURL:clickedPost.URL];
+//	NSA * assets = [_assetTree.selectedObjects vFKP:@"URL"];
+//	NSURL 	* u = assets[0];
+//
+//	NSAssert(u.class == NSURL.class, @"must be a url");
+//
+//	XX(self.view.window.aceView);
+//
+//	[self.view.window.aceView setURL:u];
+
 }
 
+-(TBPost*) selectedPost {  return ((TBSiteDocument*)self.document).site.posts[self.postTableView.clickedRow]; }
+
+#pragma mark - Actions
+
+- (IBAction)editPost:(id)sender {	[self.view.window.aceView setURL:self.selectedPost.URL];  } //	[AZWORKSPACE openURL:clickedPost.URL];
 - (IBAction)previewPost:(id)sender {
-	TBPost *clickedPost = (self.document.site.posts)[[self.postTableView clickedRow]];
-	NSDateFormatter *formatter = [NSDateFormatter new];
-	formatter.dateFormat = @"yyyy/MM/dd";
-	NSString *postURLPrefix = [[formatter stringFromDate:clickedPost.date] stringByAppendingPathComponent:clickedPost.slug];
-	NSURL *postPreviewURL = [NSURL URLWithString:postURLPrefix relativeToURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:%d", self.document.server.listeningPort]]];
-	[[NSWorkspace sharedWorkspace] openURL:postPreviewURL];
-	
+
+	NSDateFormatter *formatter 	= NSDateFormatter.new;
+	formatter.dateFormat 			= @"yyyy/MM/dd";
+	NSString *postURLPrefix 		= [[formatter stringFromDate:self.selectedPost.date] withPath:self.selectedPost.slug];
+	NSURL *postPreviewURL 			= [NSURL URLWithString:postURLPrefix relativeToURL:$URL($(@"http://localhost:%d", self.document.server.listeningPort))];
+	[(WebView*)[self.view.window subviewWithClass:WebView.class]setMainFrameURL:postPreviewURL.path];
+//	[AZWORKSPACE openURL:postPreviewURL];
+
 }
 
 - (IBAction)revealPost:(id)sender {
@@ -61,7 +71,8 @@
 	[[NSWorkspace sharedWorkspace] selectFile:clickedPost.URL.path inFileViewerRootedAtPath:nil];
 }
 
-- (void)tableView:(NSTableView *)tableView shouldDeleteRows:(NSIndexSet *)rowIndexes {
+- (void)tableView:(NSTableView*)tableView shouldDeleteRows:(NSIndexSet*)rowIndexes {
+
 	NSA*selectedPosts = [self.document.site.posts objectsAtIndexes:rowIndexes];
 	NSA*postURLs = [selectedPosts valueForKey:@"URL"];
 	[self moveURLsToTrash:postURLs];
@@ -82,7 +93,7 @@
 	}];
 }
 
-- (void)undoMoveToTrashForURLs:(NSD *)URLs {
+- (void)undoMoveToTrashForURLs:(NSD*)URLs {
 	[URLs enumerateKeysAndObjectsUsingBlock:^(id key, id object, BOOL *stop) {
 		NSURL *originalURL = key;
 		NSURL *trashURL = object;
@@ -99,25 +110,17 @@
 
 #pragma mark - QuickLook Support
 
-- (NSInteger)numberOfPreviewItemsInPreviewPanel:(QLPreviewPanel *)panel {
-	return self.document.site.posts.count;
-}
+- (NSInteger)numberOfPreviewItemsInPreviewPanel:(QLPreviewPanel*)panel {	return self.document.site.posts.count;	}
 
-- (BOOL)previewPanel:(QLPreviewPanel *)panel handleEvent:(NSEvent *)event {
-	return NO;
-}
+- (BOOL)previewPanel:(QLPreviewPanel*)panel handleEvent:(NSEvent*)event {	return NO;	}
 
-- (NSRect)previewPanel:(QLPreviewPanel *)panel sourceFrameOnScreenForPreviewItem:(id <QLPreviewItem>)item {
-	NSUInteger index = 0;
-	for (index = 0; index < self.document.site.posts.count; index++) {
-		if ([((TBPost *)(self.document.site.posts)[index]).URL isEqual:item]) continue;
-	}
+- (NSRect)previewPanel:(QLPreviewPanel*)pnl sourceFrameOnScreenForPreviewItem:(id <QLPreviewItem>)item {		NSUInteger index = 0;
+
+	for (index = 0; index < self.document.site.posts.count; index++)
+		if ([((TBPost*)(self.document.site.posts)[index]).URL isEqual:item]) continue;
 	return [self.postTableView rectOfRow:index];
 }
 
-- (id <QLPreviewItem>)previewPanel:(QLPreviewPanel *)panel previewItemAtIndex:(NSInteger)index {
-	TBPost *requestedPost = (self.document.site.posts)[index];
-	return requestedPost.URL;
-}
+- (id <QLPreviewItem>)previewPanel:(QLPreviewPanel*)pnl previewItemAtIndex:(NSI)idx {	return ((TBPost*)self.document.site.posts[idx]).URL;	}
 
 @end

@@ -10,23 +10,23 @@
 #import "NSDateFormatter+TBAdditions.h"
 
 @implementation TBPost (TemplateAdditions)
-- (NSString *)dateString {
+- (NSString*)dateString {
 	NSDateFormatter *dateStringFormatter = [NSDateFormatter tb_cachedDateFormatterFromString:@"d MMM yyyy"];
 	return [dateStringFormatter stringFromDate:self.date];
 }
-- (NSString *)XMLDate {
+- (NSString*)XMLDate {
 	NSDateFormatter *XMLDateFormatter = [NSDateFormatter tb_cachedDateFormatterFromString:@"yyyy'-'MM'-'dd'T'HH':'mm':'ssZ"];
 	NSMutableString *mutableDateString = [[XMLDateFormatter stringFromDate:self.date] mutableCopy];
 	[mutableDateString insertString:@":" atIndex:mutableDateString.length - 2];
 	return mutableDateString;
 }
-- (NSString *)summary {
+- (NSString*)summary {
 	NSUInteger paraStart = 0, paraEnd = 0, contentsEnd = 0;
 	[self.content getParagraphStart:&paraStart end:&paraEnd contentsEnd:&contentsEnd forRange:NSMakeRange(0, 0)];
 	NSRange paragraphRange = NSMakeRange(paraStart, contentsEnd - paraStart);
 	return [self.content substringWithRange:paragraphRange];
 }
-- (NSString *)relativeURL {
+- (NSString*)relativeURL {
 	NSDateFormatter *relativeURLFormatter = [NSDateFormatter tb_cachedDateFormatterFromString:@"/yyyy/MM/dd"];
 	NSString *directoryStructure = [relativeURLFormatter stringFromDate:self.date];
 	return [directoryStructure stringByAppendingPathComponent:self.slug];

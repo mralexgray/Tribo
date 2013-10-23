@@ -10,5 +10,5 @@
 typedef void(^TBAddPostSheetControllerCompletionHandler)(NSString *title, NSString *slug);
 
 @interface TBAddPostSheetController : NSWindowController
-- (void)runModalForWindow:(NSWindow *)window completionBlock:(TBAddPostSheetControllerCompletionHandler)completionHandler;
+- (void)runModalForWindow:(NSWindow*)window completionBlock:(TBAddPostSheetControllerCompletionHandler)completionHandler;
 @end

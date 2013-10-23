@@ -11,16 +11,14 @@
 @implementation TBWebSocket
 
 - (void)didOpen {
-	NSString *helloMessage = @"{ \"command\": \"hello\", \"protocols\": [\"http://livereload.com/protocols/official-7\", \"http://livereload.com/protocols/official-8\", \"http://livereload.com/protocols/2.x-origin-version-negotiation\"], \"serverName\": \"Tribo\" }";
-	[self sendMessage:helloMessage];
+	[self sendMessage:	@" { 	\"command\"		: \"hello\","
+								 "		\"protocols\"	: [	\"http://livereload.com/protocols/official-7\","
+								 "									\"http://livereload.com/protocols/official-8\","
+								 "									\"http://livereload.com/protocols/2.x-origin-version-negotiation\"  ],"
+								 "    \"serverName\"	: \"Tribo\" 	}"];
 }
+- (void)didReceiveMessage:(NSS*)message {	}
 
-- (void)didReceiveMessage:(NSString *)message {
-	
-}
-
-- (void)didClose {
-	
-}
+- (void)didClose {	}
 
 @end

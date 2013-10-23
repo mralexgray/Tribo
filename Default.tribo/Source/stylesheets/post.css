@@ -4,10 +4,8 @@
 .post-header { margin-bottom: -15px; }
 .date {
 	float:right;
+	margin-right: 20px;
 	font-size: 14px;
-}
-.date a {
-    color: black;
 }
 .post-content {
 	font-size: 12pt;
@@ -26,11 +24,14 @@
     text-align: center;
 }
 .continue-reading {
-    float: right;
-	margin: 15px 0px 0px 0px;
-	font-size: 14px;
+	margin: 0px 25px 0px 0px;
+	padding: 0px;
+	line-height: 1.0em;
+	font-size: 16px;
 	font-style: italic;
 	text-align: right;
 }
 .continue-reading a { text-decoration: none; }
 .continue-reading a:hover { text-decoration: underline }
+.gist-meta { display: none; }
+.gist-data { border-bottom: none !important; }

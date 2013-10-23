@@ -6,11 +6,24 @@
 //  Copyright (c) 2012 The Tribo Authors.
 //  See the included License.md file.
 //
+#import <ACEView/ACEView.h>
+
 
 @class 		 					 TBSiteDocument ;
-@interface 					  TBViewController : NSViewController
-@property (nonatomic, weak) TBSiteDocument * document;
+@interface 					  TBViewController : NSVC
+@property (nonatomic,weak)  TBSiteDocument * document;
+@property (readonly) 					   NSS * defaultNibName;
 
-- (NSString*) defaultNibName;
--      (void) viewDidLoad;
 @end
+
+@interface NSWindow (Fake)
+-     (NSV*) subviewWithClass:(Class)k;
+- (ACEView*) aceView;
+@end
+
+
+//-      (void) viewDidLoad;
+//@protocol TBViewProtocol <NSObject>
+//@concrete 
+//@property (weak) TBViewController *controller; 
+//@end

@@ -11,11 +11,14 @@ typedef void(^TBSiteDocumentPreviewCallback)(NSURL *localURL, NSError *error);
 
 @class TBSite, TBHTTPServer, AZWebPreviewViewController;
 
-@interface TBSiteDocument : NSDocument
-@property (weak) AZWebPreviewViewController *webView;
-@property (nonatomic, strong) TBSite *site;
-@property (nonatomic, strong) TBHTTPServer *server;
-@property (readonly) BOOL previewIsRunning;
-- (void)startPreview:(TBSiteDocumentPreviewCallback)callback;
-- (void)stopPreview;
+@interface 						  TBSiteDocument : NSDocument
+
+@property (weak) AZWebPreviewViewController * webView;
+@property (nonatomic) 					 TBSite * site;
+@property (nonatomic) 			 TBHTTPServer * server;
+@property ( readonly) 					   BOOL   previewIsRunning;
+
+- (void) startPreview:(TBSiteDocumentPreviewCallback)callback;
+- (void) stopPreview;
+
 @end

@@ -7,7 +7,25 @@
 //
 
 #import "TBViewController.h"
+#import <ACEView/ACEView.h>
 
-@interface AZWebPreviewViewController : TBViewController
+@interface AZWebPreviewViewController : TBViewController 
+@end
 
+
+@interface NSWindow (Fake)
+@property (readonly) ACEView *aceView;
+@end
+@interface NSView (Fake)
+@property (readonly) ACEView *aceView;
+@end
+
+
+@interface  ACEView (AZACEView) // <ACEViewDelegate>
+//@property NSNumber *syntaxMode, *theme;
+//@property (nonatomic)ACEView *aceView;
+//- (void) setContent:(id)stuff mode:(ACEMode)m;
+//- (ACEMode) mode;
+//@property (nonatomic) id content;
+- (void) setURL:(NSURL*)url;
 @end

@@ -10,14 +10,9 @@
 #import "TBStatusView.h"
 
 @interface TBStatusView ()
-@property (nonatomic, strong) NSColor *aquaTopColor;
-@property (nonatomic, strong) NSColor *aquaBottomColor;
-@property (nonatomic, strong) NSColor *aquaBorderColor;
-@property (nonatomic, strong) NSColor *aquaHighlightColor;
-@property (nonatomic, strong) NSColor *graphiteTopColor;
-@property (nonatomic, strong) NSColor *graphiteBottomColor;
-@property (nonatomic, strong) NSColor *graphiteBorderColor;
-@property (nonatomic, strong) NSColor *graphiteHighlightColor;
+@property (nonatomic) NSColor *aquaTopColor, 		*aquaBottomColor, 	*aquaBorderColor, 
+										*aquaHighlightColor, *graphiteTopColor,	*graphiteBottomColor, 
+										*graphiteBorderColor,*graphiteHighlightColor;
 @property (nonatomic, assign) IBOutlet NSTextField *titleField;
 @property (nonatomic, strong) NSA*observers;
 @end
@@ -25,15 +20,15 @@
 @implementation TBStatusView
 
 - (void)awakeFromNib {
-	void (^needsDisplayBlock)(NSNotification *note) = ^(NSNotification *note) {
-		[self setNeedsDisplay:YES];
-	};
-	NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-	self.observers = @[
-		[center addObserverForName:NSControlTintDidChangeNotification object:NSApp queue:nil usingBlock:needsDisplayBlock],
-		[center addObserverForName:NSWindowDidResignKeyNotification object:self.window queue:nil usingBlock:needsDisplayBlock],
-		[center addObserverForName:NSWindowDidBecomeKeyNotification object:self.window queue:nil usingBlock:needsDisplayBlock]
-	];
+//	void (^needsDisplayBlock)(NSNotification *note) = ^(NSNotification *note) {
+//		[self setNeedsDisplay:YES];
+//	};
+//	self.observers = @[
+//		[AZNOTCENTER addObserver: forKeyPaths:<#(id<NSFastEnumeration>)#>
+//		[AZNOTCENTER addObserverForName:NSControlTintDidChangeNotification object:NSApp queue:NSOQ.mainQueue usingBlock:needsDisplayBlock],
+//		[AZNOTCENTER addObserverForName:NSWindowDidResignKeyNotification object:self.window queue:NSOQ.mainQueue usingBlock:needsDisplayBlock],
+//		[AZNOTCENTER addObserverForName:NSWindowDidBecomeKeyNotification object:self.window queue:NSOQ.mainQueue usingBlock:needsDisplayBlock]
+//	];
 	NSRect titleFrame = self.titleField.frame;
 	titleFrame.size.height += 2.0;
 	titleFrame.origin.y -= 2.0;
@@ -41,14 +36,14 @@
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
-	NSColor *topColor = self.aquaTopColor;
-	NSColor *bottomColor = self.aquaBottomColor;
-	NSColor *borderColor = self.aquaBorderColor;
+	NSColor *topColor 		= self.aquaTopColor;
+	NSColor *bottomColor 	= self.aquaBottomColor;
+	NSColor *borderColor 	= self.aquaBorderColor;
 	NSColor *highlightColor = self.aquaHighlightColor;
-	if ([NSColor currentControlTint] == NSGraphiteControlTint) {
-		topColor = self.graphiteTopColor;
-		bottomColor = self.graphiteBottomColor;
-		borderColor = self.graphiteBorderColor;
+	if (NSColor.currentControlTint == NSGraphiteControlTint) {
+		topColor 		= self.graphiteTopColor;
+		bottomColor 	= self.graphiteBottomColor;
+		borderColor		= self.graphiteBorderColor;
 		highlightColor = self.graphiteHighlightColor;
 	}
 	if (!self.window.isKeyWindow) {
@@ -68,8 +63,8 @@
 	NSRectFill(highlightRect);
 }
 
-- (void)dealloc {
-	for (id observer in _observers) [[NSNotificationCenter defaultCenter] removeObserver:observer];
-}
+//- (void)dealloc {
+//	for (id observer in _observers) [AZNOTCENTER removeObserver:observer];
+//}
 
 @end

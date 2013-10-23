@@ -11,5 +11,5 @@
 @class TBPost;
 
 @interface TBSite (Scripting)
-- (NSScriptObjectSpecifier *)objectSpecifierForPost:(TBPost *)post;
+- (NSScriptObjectSpecifier*)objectSpecifierForPost:(TBPost*)post;
 @end

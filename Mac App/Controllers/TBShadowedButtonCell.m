@@ -11,7 +11,7 @@
 
 @implementation TBShadowedButtonCell
 
-- (void)drawInteriorWithFrame:(NSRect)cellFrame inView:(NSView *)controlView {
+- (void)drawInteriorWithFrame:(NSRect)cellFrame inView:(NSView*)controlView {
 	NSColor *shadowColor = self.aquaShadowColor;
 	if ([NSColor currentControlTint] == NSGraphiteControlTint)
 		shadowColor = self.graphiteShadowColor;
@@ -25,7 +25,7 @@
 	[super drawInteriorWithFrame:cellFrame inView:controlView];
 }
 
-- (void)highlight:(BOOL)flag withFrame:(NSRect)cellFrame inView:(NSView *)controlView {
+- (void)highlight:(BOOL)flag withFrame:(NSRect)cellFrame inView:(NSView*)controlView {
 	if (!flag) {
 		[self drawInteriorWithFrame:cellFrame inView:controlView];
 		return;

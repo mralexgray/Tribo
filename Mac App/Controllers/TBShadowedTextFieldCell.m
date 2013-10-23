@@ -11,7 +11,7 @@
 
 @implementation TBShadowedTextFieldCell
 
-- (void)drawInteriorWithFrame:(NSRect)cellFrame inView:(NSView *)controlView {
+- (void)drawInteriorWithFrame:(NSRect)cellFrame inView:(NSView*)controlView {
 	NSColor *shadowColor = self.aquaShadowColor;
 	if ([NSColor currentControlTint] == NSGraphiteControlTint)
 		shadowColor = self.graphiteShadowColor;

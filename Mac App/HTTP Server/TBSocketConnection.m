@@ -11,28 +11,22 @@
 //#import "HTTPDataResponse.h"
 
 @interface TBSocketConnection () <WebSocketDelegate>
-@property (nonatomic, strong) WebSocket *socket;
+@property WebSocket *socket;
 @end
 
 @implementation TBSocketConnection
 
-- (WebSocket *)webSocketForURI:(NSString *)path {
-	if ([path isEqualToString:@"/livereload"]) {
-		self.socket = [[TBWebSocket alloc] initWithRequest:request socket:asyncSocket];
-		return self.socket;
-	}
-	return [super webSocketForURI:path];
+- (WebSocket*)webSocketForURI:(NSString*)path {
+
+	return [path isEqualToString:@"/livereload"] ? (self.socket = [TBWebSocket.alloc initWithRequest:request socket:asyncSocket])
+																: [super webSocketForURI:path];
 }
 
-- (NSObject <HTTPResponse> *)httpResponseForMethod:(NSString *)method URI:(NSString *)path {
+- (NSObject <HTTPResponse>*)httpResponseForMethod:(NSS*)method URI:(NSS*)path {
 	
-	if ([path hasPrefix:@"/livereload.js"]) {
-		NSString *liveReloadJS = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"TBLiveReloadJS"];
-		return [[HTTPDataResponse alloc] initWithData:[liveReloadJS dataUsingEncoding:NSUTF8StringEncoding]];
-	}
-	
-	return [super httpResponseForMethod:method URI:path];
-	
+	return [path hasPrefix:@"/livereload.js"]
+		?	 [HTTPDataResponse.alloc initWithData:[AZAPPBUNDLE.infoDictionary[@"TBLiveReloadJS"] dataUsingEncoding:NSUTF8StringEncoding]]
+		:	 [super httpResponseForMethod:method URI:path];
 }
 
 @end

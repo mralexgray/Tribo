@@ -8,7 +8,7 @@
 	<author>
 		<name>{{author}}</name>
 	</author>
-	{{#posts}}
+	{{#recentPosts}}
 	<entry>
 		<title>{{title}}</title>
 		<link href="{{site/baseURL}}{{relativeURL}}"/>
@@ -16,5 +16,5 @@
 		<id>{{site.baseURL}}{{relativeURL}}</id>
 		<content type="html">{{content}}</content>
 	</entry>
-	{{/posts}}
+	{{/recentPosts}}
 </feed>

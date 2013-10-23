@@ -31,17 +31,17 @@
 @property (nonatomic, strong) NSA*availableFilters;
 @property (nonatomic, strong) NSMA *enabledFilters;
 
-- (void)didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
+- (void)didEndSheet:(NSWindow*)sheet returnCode:(NSInteger)returnCode contextInfo:(void*)contextInfo;
 - (IBAction)save:(id)sender;
 - (IBAction)cancel:(id)sender;
 - (IBAction)uploadViaPopUpDidChange:(id)sender;
 
 - (void)loadFormValues;
 - (void)updatePlaceholders;
-- (NSD *)dictionaryOfFormValues;
-- (NSString *)passwordFromKeychain;
-- (void)setStoredPassword:(NSString *)newPassword;
-- (void)addNewKeychainItemForPassword:(NSString *)newPassword;
+- (NSD*)dictionaryOfFormValues;
+- (NSString*)passwordFromKeychain;
+- (void)setStoredPassword:(NSString*)newPassword;
+- (void)addNewKeychainItemForPassword:(NSString*)newPassword;
 
 @end
 
@@ -52,7 +52,7 @@
     return self;
 }
 
-- (void)runModalForWindow:(NSWindow *)window site:(TBSite *)site {
+- (void)runModalForWindow:(NSWindow*)window site:(TBSite*)site {
 	self.site = site;
 	[self loadFilters];
 	[self loadWindow];
@@ -119,11 +119,11 @@
 	[self.portField.cell setPlaceholderString:[NSString stringWithFormat:@"%ld", port]];
 }
 
-- (void)controlTextDidChange:(NSNotification *)notification {
+- (void)controlTextDidChange:(NSNotification*)notification {
 	[self updatePlaceholders];
 }
 
-- (NSD *)dictionaryOfFormValues {
+- (NSD*)dictionaryOfFormValues {
 	
 	NSNumber *numberOfRecentPosts = @([self.numberOfRecentPostsField.stringValue integerValue]);
 	NSString *protocol = @"";
@@ -146,7 +146,7 @@
 	
 }
 
-- (NSString *)passwordFromKeychain {
+- (NSString*)passwordFromKeychain {
 	
 	char *passwordBuffer = NULL;
 	UInt32 passwordLength = 0;
@@ -168,7 +168,7 @@
 	
 }
 
-- (void)setStoredPassword:(NSString *)newPassword {
+- (void)setStoredPassword:(NSString*)newPassword {
 	
 	NSString *serverName = self.serverField.stringValue;
 	NSString *accountName = self.userNameField.stringValue;
@@ -193,7 +193,7 @@
 	
 }
 
-- (void)addNewKeychainItemForPassword:(NSString *)newPassword {
+- (void)addNewKeychainItemForPassword:(NSString*)newPassword {
 	
 	NSString *serverName = self.serverField.stringValue;
 	NSString *accountName = self.userNameField.stringValue;
@@ -216,7 +216,7 @@
 	[NSApp endSheet:self.window returnCode:NSCancelButton];
 }
 
-- (void)didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
+- (void)didEndSheet:(NSWindow*)sheet returnCode:(NSInteger)returnCode contextInfo:(void*)contextInfo {
 	[self.window orderOut:self];
 	if (returnCode != NSOKButton) return;
 	self.site.metadata = [self dictionaryOfFormValues];
@@ -225,11 +225,11 @@
 
 # pragma mark - NSTableViewDelegate
 
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+- (NSInteger)numberOfRowsInTableView:(NSTableView*)tableView {
 	return [self.availableFilters count];
 }
 
-- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+- (id)tableView:(NSTableView*)tableView objectValueForTableColumn:(NSTableColumn*)tableColumn row:(NSInteger)row {
 	NSString *filterName = self.availableFilters[row];
 	if ([tableColumn.identifier isEqualToString:@"checkbox"]) {
 		return @([self.enabledFilters containsObject:filterName]);
@@ -239,7 +239,7 @@
 	return nil;
 }
 
-- (void)tableView:(NSTableView *)tableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+- (void)tableView:(NSTableView*)tableView setObjectValue:(id)object forTableColumn:(NSTableColumn*)tableColumn row:(NSInteger)row {
 	NSString *filterName = self.availableFilters[row];
 	if ([object boolValue])
 		[self.enabledFilters addObject:filterName];

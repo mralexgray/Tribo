@@ -18,7 +18,7 @@ html {
 	height: 100%;
 }
 body {
-	font: 16px/1.35em Helvetica, Verdana, Sans-Serif;
+	font: 20px/1.35em "Gill Sans", "Gill Sans MT", "Gill Sans MS", Helvetica, Sans-Serif;
 	background-color: white;
 	margin: 0px;
 	padding: 0px;
@@ -29,23 +29,35 @@ body {
     position: relative;
 }
 #container > header {
-	margin: 10px 0px 10px 0px;
-	text-align: center;
+	margin: 0px 0px 5px 0px;
 }
 #container > header a {
-    display: block;
-    margin: 0px auto;
     text-decoration: none;
 	color: black;
 }
 #container > header a:hover {
     text-decoration: underline;
 }
-#container > header h3 {
-    font-size: 12px;
-    font-weight: lighter;
-    font-style: italic;
+#container > header > a {
+    width: 453px;
     display: block;
+	margin: 0px auto;
+}
+.badtie {
+    height: 15px;
+    background: #646464 url(/images/pinstripe.png) repeat fixed;
+    background-size: 60px 60px;
+}
+#logo {
+    display: block;
+	margin: 10px auto 0px auto;
+}
+#logotype {
+	margin: 0px auto;
+	font-size: 60px;
+	line-height: 1em;
+	display: block;
+	text-align: center;
 }
 #content {
 	width: 650px;
@@ -58,6 +70,21 @@ body {
 	font: 40px "Georgia", Georgia, Times, serif;
 	color: #ffddd2;
 	text-align: center;
+}
+nav {
+    clear: left;
+	margin: 20px auto 0px auto;
+	background: white;
+	padding: 0em 0em 0em 2em;
+}
+nav ul {
+    margin: 0px;
+    padding: 0px;
+	text-align: center;
+}
+nav li {
+    display: inline;
+	padding: 0em 2em 0em 0em;
 }
 #bottomNav {
     text-align: right;
@@ -74,7 +101,7 @@ h1 {
 	font-size: 18px;
 	line-height: 1em;
 }
-h1 a, h2 a { color: black; }
+h1 a { color: black; }
 h2 { font-size: 16px; }
 blockquote { font-style: italic; }
 pre {
@@ -121,7 +148,8 @@ footer {
         line-height: 1.6em;
     }
     .post-content img {
-        width: 300px;
+        width: 250px !important;
+        margin: 5px !important;
     }
     .date {
         float: none !important;

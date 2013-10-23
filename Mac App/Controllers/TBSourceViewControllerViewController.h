@@ -9,7 +9,9 @@
 #import <Cocoa/Cocoa.h>
 #import "TBViewController.h"
 
-@interface TBSourceViewControllerViewController : TBViewController
+#define AZNewSourceSelectedNotification @"AZNewSourceSelectedNotification"
+
+@interface TBSourceViewControllerViewController : TBViewController <NSOutlineViewDelegate>
 @property (nonatomic, weak) IBOutlet NSOutlineView *outlineView;
 @property (nonatomic, weak) IBOutlet NSTreeController *assetTree;
 @end

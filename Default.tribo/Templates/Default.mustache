@@ -1,10 +1,21 @@
 <!DOCTYPE HTML>
+<!--
+	Well hello there! Feel free to look over the code here, if you'd like.
+	It is worth mentioning that the un-compiled version of the site's code
+	can be found here:  http://github.com/CarterA/cartera.me/
+-->
 <html>
 	<head>
 		
 		<meta charset="utf-8">
-		<title>{{site/name}} - {{title}}</title>
-		<meta name="author" content="{{site/author}}">
+		<title>{{site.name}} - {{title}}</title>
+		<meta name="description" content="Articles and projects written and created by developer Carter Allen.">
+		<meta name="author" content="Carter Allen">
+		<link rel="alternate" type="application/atom+xml" title="Carter Allen - Feed" href="http://cartera.me/feed.xml">
+		<link rel="openid.server" href="http://www.myopenid.com/server" />
+		<link rel="openid.delegate" href="http://carterallen.myopenid.com/" />
+		<link rel="openid2.local_id" href="http://carterallen.myopenid.com" />
+		<link rel="openid2.provider" href="http://www.myopenid.com/server" />
 		
 		<meta name="viewport" content="width=device-width">
 		<link rel="stylesheet" href="/stylesheets/main.css">
@@ -21,19 +32,26 @@
 	<body>
 	    <div id="container">
 		<header>
+		    <div class="badtie"></div>
 			<a href="/">
-				<h1>{{site.name}}</h1>
+				<img id="logo" src="/images/hat.png" alt="" width=190 height=100>
+				<p id="logotype">carter<b>allen</b></p>
 			</a>
-			<h3>By {{site.author}}</h3>
+			<nav>
+			  <ul>
+				<li><a href="/">Articles</a></li>
+				<li><a href="/projects">Projects</a></li>
+				<li><a href="/archives">Archives</a></li>
+				<li><a href="/about/" rel="author">About</a></li>
+			  </ul>
+			</nav>
 		</header>
 		<section id ="content">{{{content}}}</section>
 		<footer>
-			<p>Copyright 2012 {{site.author}}</p>
+			<!--<p>Site revision <a href="http://github.com/CarterA/cartera.me/tree/{{commitHash}}">{{commitHash}}</a>. -->Valid <a href="http://validator.w3.org/check?uri=referer" target="_blank">HTML5</a>.<!--</p>-->
+			<p>Copyright 2011 Carter Allen</p>
+			<div class="badtie"></div>
 		</footer>
 		</div>
 	</body>
 </html>
-
-<!--
-	This website was compiled by Tribo.
--->

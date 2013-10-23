@@ -39,8 +39,8 @@
 	@return
 		A TBPost object, or nil if an error was encountered.
  */
-+ (instancetype)postWithURL:(NSURL *)URL
-					 inSite:(TBSite *)site
++ (instancetype)postWithURL:(NSURL*)URL
+					 inSite:(TBSite*)site
 					  error:(NSError **)error;
 
 /*!

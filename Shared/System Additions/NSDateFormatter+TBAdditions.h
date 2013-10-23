@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface NSDateFormatter (TBAdditions)
-+ (instancetype)tb_cachedDateFormatterFromString:(NSString *)format;
++ (instancetype)tb_cachedDateFormatterFromString:(NSString*)format;
 @end
