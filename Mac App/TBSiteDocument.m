@@ -1,82 +1,60 @@
-//
-//  TBSiteDocument.m
-//  Tribo
-//
-//  Created by Carter Allen on 10/3/11.
-//  Copyright (c) 2012 The Tribo Authors.
-//  See the included License.md file.
-//
-
 #import "TBSiteDocument.h"
-#import "TBSiteWindowController.h"
-#import "TBNewSiteSheetController.h"
-#import "TBSite.h"
-#import "TBMacros.h"
-#import "TBHTTPServer.h"
-#import "NSResponder+TBAdditions.h"
-#import "CZAFileWatcher.h"
-#import "AZWelcomeWindowController.h"
 
-@interface 							   TBSiteDocument () <TBSiteDelegate>
-@property (nonatomic) 				CZAFileWatcher * sourceWatcher, * postsWatcher;
-@property (nonatomic)  TBNewSiteSheetController * siteSheetController;
-@property (nonatomic) AZWelcomeWindowController * welcome;
-@end
+
 
 @implementation 					  TBSiteDocument
 
-- (void) startPreview:(TBSiteDocumentPreviewCallback)callback 	{												MAWeakSelfDeclare();
+- (void) startPreview:(TBSiteDocumentPreviewCallback)callback 	{	MAWeakSelfDeclare();
 
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{		__block NSError *error; MAWeakSelfImport();
 
-		[NSProcessInfo.processInfo disableSuddenTermination];
-																				if (![self.site process:&error]) return callback(nil, error);
-		[NSProcessInfo.processInfo enableSuddenTermination];
+																									[NSProcessInfo.processInfo disableSuddenTermination];
+		if (![self.site process:&error]) return callback(nil, error);
+																									 [NSProcessInfo.processInfo enableSuddenTermination];
 
 		if (!self.server) (self.server = TBHTTPServer.new).documentRoot = self.site.destination.path;
 
-		[self.server            start:nil];		[self.server         refreshPages];
-		[self.sourceWatcher startWatching];		[self.postsWatcher   stopWatching];		//	[NSWorkspace.sharedWorkspace openURL:localURL];
-		self->_previewIsRunning 	 = YES;
-		if (!callback) 				return;
+		[self.server            start:nil];		
+		[self.server         refreshPages];
+		[self.sourceWatcher startWatching];		
+		[self.postsWatcher   stopWatching];		//	[NSWorkspace.sharedWorkspace openURL:localURL];
+		self->_previewIsRunning 	 = YES;	// 
+		if (!callback) 				return;  // require that processor returned URL string..
 
 		dispatch_async(dispatch_get_main_queue(), ^{		callback($URL($(@"http://localhost:%d", self.server.listeningPort)), error);		});
 	});
 	
 }
-- (void) stopPreview 														{	[self.sourceWatcher stopWatching]; [self.postsWatcher startWatching]; [self.server stop];	_previewIsRunning = NO;	}
+- (void) stopPreview {	[self.sourceWatcher stopWatching]; [self.postsWatcher startWatching]; [self.server stop];	_previewIsRunning = NO;	}
 
-- (CZAFileWatcher*) sourceWatcher 										{	if (_sourceWatcher) return _sourceWatcher;	MAWeakSelfDeclare();
+- (CZAFileWatcher*) sourceWatcher {	if (_sourceWatcher) return _sourceWatcher;	MAWeakSelfDeclare();
 
-	_sourceWatcher = [CZAFileWatcher fileWatcherForURLs:@[self.site.sourceDirectory, self.site.postsDirectory, self.site.templatesDirectory] changesHandler:^(NSA*changedURLs) {
+	_sourceWatcher = [CZAFileWatcher fileWatcherForURLs:@[		self.site.sourceDirectory,
+																														self.site.postsDirectory,
+																														self.site.templatesDirectory] changesHandler:^(NSA*changedURLs) {
 
 			MAWeakSelfImport(); NSLog(@"URL changed: %@", changedURLs);  [self reloadSite];
 	}];
 	return _sourceWatcher;
 }
-- (CZAFileWatcher*) postsWatcher 										{	if (_postsWatcher) return _postsWatcher;					MAWeakSelfDeclare();
+- (CZAFileWatcher*) postsWatcher 	{	if (_postsWatcher) return _postsWatcher;	MAWeakSelfDeclare();
 
-	return _postsWatcher = [CZAFileWatcher fileWatcherForURLs:@[self.site.postsDirectory] changesHandler:^(NSA*changedURLs) {	MAWeakSelfImport(); [self reloadSite];	}];
+	return _postsWatcher = [CZAFileWatcher fileWatcherForURLs:@[self.site.postsDirectory] changesHandler:^(NSA*changedURLs) {	MAWeakSelfImport();																																	 [self reloadSite];	}];
 }
 
-- (void) reloadSite 															{
-
-	if (self.server.isRunning) {																				MAWeakSelfDeclare();
+- (void) reloadSite { if (self.server.isRunning) { MAWeakSelfDeclare();
 
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{			MAWeakSelfImport();	NSError *error;
 			
-			[AZPROCINFO disableSuddenTermination];
-																if (![self.site process:&error]) return [NSApp tb_presentErrorOnMainQueue:error];
-			[AZPROCINFO enableSuddenTermination];
-			[self.server refreshPages];
+			[AZPROCINFO disableSuddenTermination];	if (![self.site process:&error]) return [NSApp tb_presentErrorOnMainQueue:error];
+			[AZPROCINFO enableSuddenTermination];																						[self.server refreshPages];
 		});
 	}
 	else {		NSError *parsingError;	if (![self.site parsePosts:&parsingError])		[NSApp tb_presentErrorOnMainQueue:parsingError];	}
 }
 
-- (void) runNewSiteSheet			 										{
+- (void) runNewSiteSheet { self.siteSheetController = TBNewSiteSheetController.new;
 
-	self.siteSheetController = TBNewSiteSheetController.new;
 	[self.siteSheetController runModalForWindow:self.windowForSheet completionHandler:^(NSString *name, NSString *author, NSURL *URL) {
 		
 		if (!URL) return [self performSelector:@selector(close) withObject:nil afterDelay:0.4]; 		// Close the window after a small delay, so that the sheet has time to close.
@@ -91,6 +69,8 @@
 }
 
 #pragma mark - NSDocument
+
+//- (BOOL)applicationShouldOpenUntitledFile:(NSAPP*)sender { return NO;  }
 
 + (BOOL)canConcurrentlyReadDocumentsOfType:(NSString*)typeName 	{ return YES; }
 

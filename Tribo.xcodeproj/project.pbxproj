@@ -118,24 +118,15 @@
 		4AF9C9DA17A4587700709238 /* TBError.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF9C9D817A4587700709238 /* TBError.m */; };
 		4AF9C9DD17A4831700709238 /* TBError.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AF9C9DF17A4831700709238 /* TBError.strings */; };
 		7B64D73717F4E71400C5019C /* CURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9ED5261506F82B009C5754 /* CURLProtocol.m */; };
-		7B64D79B17F56BE800C5019C /* App.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B64D78217F56BE800C5019C /* App.m */; };
-		7B64D79C17F56BE800C5019C /* Dock.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B64D78417F56BE800C5019C /* Dock.m */; };
-		7B64D79E17F56BE800C5019C /* Notice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B64D78817F56BE800C5019C /* Notice.m */; };
-		7B64D79F17F56BE800C5019C /* Path.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B64D78A17F56BE800C5019C /* Path.m */; };
-		7B64D7A117F56BE800C5019C /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B64D78E17F56BE800C5019C /* ContentView.m */; };
-		7B64D7A217F56BE800C5019C /* JSEventHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B64D79017F56BE800C5019C /* JSEventHelper.m */; };
-		7B64D7A317F56BE800C5019C /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B64D79217F56BE800C5019C /* Utils.m */; };
-		7B64D7A417F56BE800C5019C /* WebViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B64D79417F56BE800C5019C /* WebViewDelegate.m */; };
-		7B64D7A517F56BE800C5019C /* Window.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B64D79617F56BE800C5019C /* Window.m */; };
-		7B64D7A617F56BE800C5019C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B64D79717F56BE800C5019C /* AppDelegate.m */; };
-		7B64D7A717F56BE800C5019C /* WindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B64D79A17F56BE800C5019C /* WindowController.m */; };
 		7B7C613C17F3D07300093381 /* AZWebPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B7C613A17F3D07300093381 /* AZWebPreviewViewController.m */; };
 		7B7C613D17F3D07300093381 /* AZWebPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B7C613B17F3D07300093381 /* AZWebPreviewView.xib */; };
 		7B7C669717F402AD00093381 /* ACEView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7C668F17F4020A00093381 /* ACEView.framework */; };
+		7B91610A182B37E70017E6C4 /* ObjectiveGit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B916101182B37BE0017E6C4 /* ObjectiveGit.framework */; };
 		7BB6161217F478DE0091DDB6 /* ACEView.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7B7C668F17F4020A00093381 /* ACEView.framework */; };
 		7BB6161917F4DFC30091DDB6 /* AZWelcomeWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB6161717F4DFC30091DDB6 /* AZWelcomeWindowController.m */; };
 		7BB6161A17F4DFC30091DDB6 /* AZWelcomeWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BB6161817F4DFC30091DDB6 /* AZWelcomeWindow.xib */; };
-		7BB6161D17F4E3160091DDB6 /* AtoZ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB6161C17F4E3160091DDB6 /* AtoZ.framework */; };
+		7BBD9CD6182BB672007395D5 /* AtoZ.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7BC8A29E182B57BE00E902F5 /* AtoZ.framework */; };
+		7BC8A29F182B57BE00E902F5 /* AtoZ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC8A29E182B57BE00E902F5 /* AtoZ.framework */; };
 		9B6B669714F3480800759DC3 /* TBTemplatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B669514F3480800759DC3 /* TBTemplatesViewController.m */; };
 		9B6B669814F3480800759DC3 /* TBTemplatesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B6B669614F3480800759DC3 /* TBTemplatesView.xib */; };
 		9B6B669C14F3546900759DC3 /* TBAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B669B14F3546900759DC3 /* TBAsset.m */; };
@@ -173,12 +164,47 @@
 			remoteGlobalIDString = 36F169E216B9346C00E8965C;
 			remoteInfo = ACEViewTests;
 		};
+		7B916100182B37BE0017E6C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B9160ED182B377A0017E6C4 /* ObjectiveGitFramework.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
+			remoteInfo = ObjectiveGit;
+		};
+		7B916102182B37BE0017E6C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B9160ED182B377A0017E6C4 /* ObjectiveGitFramework.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 88F05A6B16011E5400B7AD1D;
+			remoteInfo = ObjectiveGitTests;
+		};
+		7B916104182B37BE0017E6C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B9160ED182B377A0017E6C4 /* ObjectiveGitFramework.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 04DB4645133AB57600D9C624;
+			remoteInfo = "ObjectiveGit-iOS";
+		};
+		7B916108182B37DA0017E6C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B9160ED182B377A0017E6C4 /* ObjectiveGitFramework.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = ObjectiveGit;
+		};
 		7BB6161317F478E50091DDB6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7B7C668817F401FE00093381 /* ACEView.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 7C8A728B15EA0769007E5EB8;
 			remoteInfo = ACEView;
+		};
+		7BF6DB3F181BF6D8007B9A63 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B7C668817F401FE00093381 /* ACEView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7B69966F1819605C00CAD9E2;
+			remoteInfo = UpdateAce;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -207,6 +233,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				7BBD9CD6182BB672007395D5 /* AtoZ.framework in CopyFiles */,
 				7BB6161217F478DE0091DDB6 /* ACEView.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,19 +392,23 @@
 		7B64D79417F56BE800C5019C /* WebViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewDelegate.m; sourceTree = "<group>"; };
 		7B64D79517F56BE800C5019C /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = "<group>"; };
 		7B64D79617F56BE800C5019C /* Window.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Window.m; sourceTree = "<group>"; };
-		7B64D79717F56BE800C5019C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "Mac App/AppDelegate.m"; sourceTree = "<group>"; };
-		7B64D79817F56BE800C5019C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "Mac App/AppDelegate.h"; sourceTree = "<group>"; };
-		7B64D79917F56BE800C5019C /* WindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WindowController.h; path = "Mac App/WindowController.h"; sourceTree = "<group>"; };
-		7B64D79A17F56BE800C5019C /* WindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WindowController.m; path = "Mac App/WindowController.m"; sourceTree = "<group>"; };
+		7B64D79717F56BE800C5019C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../AppDelegate.m; sourceTree = "<group>"; };
+		7B64D79817F56BE800C5019C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
+		7B64D79917F56BE800C5019C /* WindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WindowController.h; path = ../WindowController.h; sourceTree = "<group>"; };
+		7B64D79A17F56BE800C5019C /* WindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WindowController.m; path = ../WindowController.m; sourceTree = "<group>"; };
 		7B7C613917F3D07300093381 /* AZWebPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZWebPreviewViewController.h; path = Controllers/AZWebPreviewViewController.h; sourceTree = "<group>"; };
 		7B7C613A17F3D07300093381 /* AZWebPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZWebPreviewViewController.m; path = Controllers/AZWebPreviewViewController.m; sourceTree = "<group>"; };
 		7B7C613B17F3D07300093381 /* AZWebPreviewView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AZWebPreviewView.xib; path = Controllers/AZWebPreviewView.xib; sourceTree = "<group>"; };
 		7B7C668817F401FE00093381 /* ACEView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ACEView.xcodeproj; path = Dependencies/ACEView/ACEView.xcodeproj; sourceTree = SOURCE_ROOT; };
+		7B9160ED182B377A0017E6C4 /* ObjectiveGitFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ObjectiveGitFramework.xcodeproj; path = "../objective-git/ObjectiveGitFramework.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		7BB6161617F4DFC30091DDB6 /* AZWelcomeWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZWelcomeWindowController.h; sourceTree = "<group>"; };
 		7BB6161717F4DFC30091DDB6 /* AZWelcomeWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZWelcomeWindowController.m; sourceTree = "<group>"; };
 		7BB6161817F4DFC30091DDB6 /* AZWelcomeWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AZWelcomeWindow.xib; sourceTree = "<group>"; };
 		7BB6161C17F4E3160091DDB6 /* AtoZ.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AtoZ.framework; path = System/Library/Frameworks/AtoZ.framework; sourceTree = SDKROOT; };
+		7BC8A29E182B57BE00E902F5 /* AtoZ.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AtoZ.framework; path = "../../../../4X4/DerivedData/AtoZ-hfqteqfcvjfinlajqwkydsqyzpiz/Build/Products/Debug/AtoZ.framework"; sourceTree = "<group>"; };
 		7BD3F6FC17FFD4BE00E321E3 /* LiveReloadRef.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = LiveReloadRef.js; sourceTree = "<group>"; };
+		7BF6DB39181BF6D7007B9A63 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = Readme.md; sourceTree = "<group>"; };
+		7BF6DB3A181BF6D7007B9A63 /* License.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = License.md; sourceTree = "<group>"; };
 		9B507E7A14D7B2B100E85357 /* TBError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBError.h; sourceTree = "<group>"; };
 		9B6B669414F3480800759DC3 /* TBTemplatesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBTemplatesViewController.h; sourceTree = "<group>"; };
 		9B6B669514F3480800759DC3 /* TBTemplatesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBTemplatesViewController.m; sourceTree = "<group>"; };
@@ -407,7 +438,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BB6161D17F4E3160091DDB6 /* AtoZ.framework in Frameworks */,
+				7BC8A29F182B57BE00E902F5 /* AtoZ.framework in Frameworks */,
+				7B91610A182B37E70017E6C4 /* ObjectiveGit.framework in Frameworks */,
 				4A8696241437BE0B00204482 /* Cocoa.framework in Frameworks */,
 				4A8829211437C53000EBBD7E /* ApplicationServices.framework in Frameworks */,
 				4A9ED52A1506FAE8009C5754 /* SystemConfiguration.framework in Frameworks */,
@@ -439,6 +471,7 @@
 		4A00338E14302F6600F6702F /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				7B9160ED182B377A0017E6C4 /* ObjectiveGitFramework.xcodeproj */,
 				7B7C668817F401FE00093381 /* ACEView.xcodeproj */,
 				4A9ED51A15069CD6009C5754 /* CurlHandle */,
 				4A99C41E17B4091D0023C9A9 /* CZAFileWatcher */,
@@ -546,11 +579,9 @@
 		4A6DC8DC1430203B00CB5025 = {
 			isa = PBXGroup;
 			children = (
+				7BF6DB39181BF6D7007B9A63 /* Readme.md */,
+				7BF6DB3A181BF6D7007B9A63 /* License.md */,
 				7B64D77F17F56BE800C5019C /* Classes */,
-				7B64D79717F56BE800C5019C /* AppDelegate.m */,
-				7B64D79817F56BE800C5019C /* AppDelegate.h */,
-				7B64D79917F56BE800C5019C /* WindowController.h */,
-				7B64D79A17F56BE800C5019C /* WindowController.m */,
 				4A6DC8ED1430203B00CB5025 /* Shared */,
 				4AE91C5A14FEE0F500499469 /* Authentication Tool */,
 				4A86963F1437BE3400204482 /* Mac App */,
@@ -574,6 +605,7 @@
 		4A6DC8EA1430203B00CB5025 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7BC8A29E182B57BE00E902F5 /* AtoZ.framework */,
 				7BB6161C17F4E3160091DDB6 /* AtoZ.framework */,
 				4A7558131436FBA10040A10C /* ApplicationServices.framework */,
 				4A9ED5281506FADB009C5754 /* SystemConfiguration.framework */,
@@ -831,6 +863,8 @@
 		7B64D77F17F56BE800C5019C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7B64D79817F56BE800C5019C /* AppDelegate.h */,
+				7B64D79717F56BE800C5019C /* AppDelegate.m */,
 				7B64D78017F56BE800C5019C /* Commands */,
 				7B64D78D17F56BE800C5019C /* ContentView.h */,
 				7B64D78E17F56BE800C5019C /* ContentView.m */,
@@ -842,6 +876,8 @@
 				7B64D79417F56BE800C5019C /* WebViewDelegate.m */,
 				7B64D79517F56BE800C5019C /* Window.h */,
 				7B64D79617F56BE800C5019C /* Window.m */,
+				7B64D79917F56BE800C5019C /* WindowController.h */,
+				7B64D79A17F56BE800C5019C /* WindowController.m */,
 			);
 			name = Classes;
 			path = "Mac App/Classes";
@@ -881,6 +917,17 @@
 				7B7C668F17F4020A00093381 /* ACEView.framework */,
 				7B7C669117F4020A00093381 /* ACEVIewExample.app */,
 				7B7C669317F4020A00093381 /* ACEViewTests.octest */,
+				7BF6DB40181BF6D8007B9A63 /* UpdateAce */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7B9160F6182B37BE0017E6C4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7B916101182B37BE0017E6C4 /* ObjectiveGit.framework */,
+				7B916105182B37BE0017E6C4 /* libObjectiveGit-iOS.a */,
+				7B916103182B37BE0017E6C4 /* ObjectiveGitTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -947,6 +994,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				7B916109182B37DA0017E6C4 /* PBXTargetDependency */,
 				7BB6161417F478E50091DDB6 /* PBXTargetDependency */,
 				4AE91C6014FEE15F00499469 /* PBXTargetDependency */,
 			);
@@ -978,8 +1026,17 @@
 		4A6DC8DE1430203B00CB5025 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Opt-6 Products, LLC";
+				TargetAttributes = {
+					4A8696201437BE0B00204482 = {
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = 4A6DC8E11430203B00CB5025 /* Build configuration list for PBXProject "Tribo" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -995,6 +1052,10 @@
 				{
 					ProductGroup = 7B7C668917F401FE00093381 /* Products */;
 					ProjectRef = 7B7C668817F401FE00093381 /* ACEView.xcodeproj */;
+				},
+				{
+					ProductGroup = 7B9160F6182B37BE0017E6C4 /* Products */;
+					ProjectRef = 7B9160ED182B377A0017E6C4 /* ObjectiveGitFramework.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1026,6 +1087,34 @@
 			fileType = wrapper.cfbundle;
 			path = ACEViewTests.octest;
 			remoteRef = 7B7C669217F4020A00093381 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7B916101182B37BE0017E6C4 /* ObjectiveGit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ObjectiveGit.framework;
+			remoteRef = 7B916100182B37BE0017E6C4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7B916103182B37BE0017E6C4 /* ObjectiveGitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ObjectiveGitTests.octest;
+			remoteRef = 7B916102182B37BE0017E6C4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7B916105182B37BE0017E6C4 /* libObjectiveGit-iOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libObjectiveGit-iOS.a";
+			remoteRef = 7B916104182B37BE0017E6C4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7BF6DB40181BF6D8007B9A63 /* UpdateAce */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = UpdateAce;
+			remoteRef = 7BF6DB3F181BF6D8007B9A63 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1105,20 +1194,16 @@
 				4A3DE5FF176CF16C00C20026 /* NSDateFormatter+TBAdditions.m in Sources */,
 				7B7C613C17F3D07300093381 /* AZWebPreviewViewController.m in Sources */,
 				4A8829181437C52200EBBD7E /* houdini_href_e.c in Sources */,
-				7B64D79C17F56BE800C5019C /* Dock.m in Sources */,
 				4AF9C9DA17A4587700709238 /* TBError.m in Sources */,
-				7B64D7A117F56BE800C5019C /* ContentView.m in Sources */,
 				4A8829191437C52200EBBD7E /* houdini_html_e.c in Sources */,
 				4A88291A1437C52200EBBD7E /* html.c in Sources */,
 				4A88291B1437C52200EBBD7E /* html_smartypants.c in Sources */,
 				4A88291C1437C52200EBBD7E /* autolink.c in Sources */,
 				7BB6161917F4DFC30091DDB6 /* AZWelcomeWindowController.m in Sources */,
 				4A88291D1437C52200EBBD7E /* buffer.c in Sources */,
-				7B64D7A517F56BE800C5019C /* Window.m in Sources */,
 				4A88291E1437C52200EBBD7E /* markdown.c in Sources */,
 				4A88291F1437C52200EBBD7E /* stack.c in Sources */,
 				4A86964E1437BE3400204482 /* Core.m in Sources */,
-				7B64D7A417F56BE800C5019C /* WebViewDelegate.m in Sources */,
 				4A88296A143A737000EBBD7E /* TBSiteDocument.m in Sources */,
 				4ABD6A49143FE466007E2F5D /* TBAddPostSheetController.m in Sources */,
 				4ABD6A4F1441689B007E2F5D /* TBTableView.m in Sources */,
@@ -1127,19 +1212,14 @@
 				4AAC8E5D1456609400AE978A /* TBPostsViewController.m in Sources */,
 				4A3ED15F145C6FDC00AE9BF3 /* TBTabView.m in Sources */,
 				4ADE327F14E21B510059D03C /* TBSite+Scripting.m in Sources */,
-				7B64D7A317F56BE800C5019C /* Utils.m in Sources */,
 				4ADE328214E21BC60059D03C /* TBPost+Scripting.m in Sources */,
-				7B64D7A217F56BE800C5019C /* JSEventHelper.m in Sources */,
 				4ADE328514E21C450059D03C /* TBSiteDocument+Scripting.m in Sources */,
 				9B6B669714F3480800759DC3 /* TBTemplatesViewController.m in Sources */,
-				7B64D79E17F56BE800C5019C /* Notice.m in Sources */,
-				7B64D7A617F56BE800C5019C /* AppDelegate.m in Sources */,
 				9B6B669C14F3546900759DC3 /* TBAsset.m in Sources */,
 				9BEF1C7A14F5CFCF0072B295 /* TBSourceViewControllerViewController.m in Sources */,
 				4AE50F8114F882A300FCA39C /* TBSocketConnection.m in Sources */,
 				4AE50F8514F88A6C00FCA39C /* TBWebSocket.m in Sources */,
 				4AE50F8814F8906400FCA39C /* TBHTTPServer.m in Sources */,
-				7B64D79B17F56BE800C5019C /* App.m in Sources */,
 				4AE50F9B14F95ED500FCA39C /* TBPage+LiveReload.m in Sources */,
 				4AE50FE014FBD4E100FCA39C /* TBSettingsSheetController.m in Sources */,
 				4AE91C6614FF044700499469 /* TBPublisher.m in Sources */,
@@ -1152,12 +1232,10 @@
 				4A9ED5241506F81E009C5754 /* CURLFTPSession.m in Sources */,
 				4A9ED52D1507AF83009C5754 /* TBConstants.m in Sources */,
 				4A57A566150F8BAA00DACDBC /* TBStatusViewController.m in Sources */,
-				7B64D7A717F56BE800C5019C /* WindowController.m in Sources */,
 				4A36B99115124DCB00A3D79A /* TBStatusView.m in Sources */,
 				4AF2BFEE17B88AB6008D67AB /* NSResponder+TBAdditions.m in Sources */,
 				4AB2796015152660009D7F93 /* TBShadowedTextFieldCell.m in Sources */,
 				4AB2796715154796009D7F93 /* TBShadowedButtonCell.m in Sources */,
-				7B64D79F17F56BE800C5019C /* Path.m in Sources */,
 				4A43019F1518287C003EA175 /* TBNewSiteSheetController.m in Sources */,
 				4A99C42917B4091D0023C9A9 /* CZAFileWatcher.m in Sources */,
 				4AA86A6C173EF28200046691 /* TBSite+TemplateAdditions.m in Sources */,
@@ -1181,6 +1259,11 @@
 			isa = PBXTargetDependency;
 			target = 4AE91C4B14FEE08200499469 /* Authentication Tool */;
 			targetProxy = 4AE91C5F14FEE15F00499469 /* PBXContainerItemProxy */;
+		};
+		7B916109182B37DA0017E6C4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ObjectiveGit;
+			targetProxy = 7B916108182B37DA0017E6C4 /* PBXContainerItemProxy */;
 		};
 		7BB6161417F478E50091DDB6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1213,14 +1296,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_OBJC_UNUSED_IVARS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_FRAMEWORKS_DIR)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(AZBUILD)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -1233,7 +1318,11 @@
 				GCC_VERSION = "";
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_VALUE = NO;
-				HEADER_SEARCH_PATHS = "./Dependencies/**";
+				HEADER_SEARCH_PATHS = (
+					"$(AZBUILD)/include",
+					"./Dependencies/**",
+				);
+				LD_RUNPATH_SEARCH_PATHS = "$(AZBUILD)";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				RUN_CLANG_STATIC_ANALYZER = YES;
@@ -1245,7 +1334,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_OBJC_UNUSED_IVARS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -1253,13 +1341,20 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_FRAMEWORKS_DIR)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(AZBUILD)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_VERSION = "";
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_VALUE = NO;
-				HEADER_SEARCH_PATHS = "./Dependencies/**";
+				HEADER_SEARCH_PATHS = (
+					"$(AZBUILD)/include",
+					"./Dependencies/**",
+				);
+				LD_RUNPATH_SEARCH_PATHS = "$(AZBUILD)";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				RUN_CLANG_STATIC_ANALYZER = YES;
@@ -1310,20 +1405,22 @@
 		4A86963B1437BE0C00204482 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = NO;
-				CODE_SIGN_ENTITLEMENTS = "Mac App/Resources/Tribo.entitlements";
-				CODE_SIGN_IDENTITY = "Tribo Open Source Developer";
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Volumes/2T/ServiceData/git/Tribo/Dependencies/ACEView/Build/Products/Release,
 					/Library/Frameworks,
+					"/Volumes/4X4/DerivedData/AtoZ-hfqteqfcvjfinlajqwkydsqyzpiz/Build/Products/Debug",
 				);
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mac App/Prefix.pch";
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				INFOPLIST_FILE = "Mac App/Resources/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "@rpath";
+				LD_RUNPATH_SEARCH_PATHS = "@rpath /Library/Frameworks @loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Dependencies/GRMustache/lib\"",
@@ -1340,6 +1437,8 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = macosx;
 				WARNING_CFLAGS = "-Wno-objc-property-no-attribute";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1348,20 +1447,22 @@
 		4A86963C1437BE0C00204482 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = NO;
-				CODE_SIGN_ENTITLEMENTS = "Mac App/Resources/Tribo.entitlements";
-				CODE_SIGN_IDENTITY = "Tribo Open Source Developer";
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Volumes/2T/ServiceData/git/Tribo/Dependencies/ACEView/Build/Products/Release,
 					/Library/Frameworks,
+					"/Volumes/4X4/DerivedData/AtoZ-hfqteqfcvjfinlajqwkydsqyzpiz/Build/Products/Debug",
 				);
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mac App/Prefix.pch";
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				INFOPLIST_FILE = "Mac App/Resources/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "@rpath";
+				LD_RUNPATH_SEARCH_PATHS = "@rpath /Library/Frameworks @loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Dependencies/GRMustache/lib\"",
@@ -1378,6 +1479,8 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = macosx;
 				WARNING_CFLAGS = "-Wno-objc-property-no-attribute";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1386,6 +1489,7 @@
 		4AE91C5614FEE08200499469 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				PRODUCT_NAME = "Tribo Authentication Tool";
 			};
@@ -1394,6 +1498,7 @@
 		4AE91C5714FEE08200499469 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				PRODUCT_NAME = "Tribo Authentication Tool";
 			};

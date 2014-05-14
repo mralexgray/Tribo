@@ -12,8 +12,8 @@
 
 @implementation TBSourceViewControllerViewController
 
-- (NSString*)defaultNibName 	{	return @"TBSourceViewControllerView";	}
-- (NSString*)title 				{	return @"Sources";							}
+- (NSS*) defaultNibName 	{	return @"TBSourceViewControllerView";	}
+- (NSS*) title 				{	return @"Sources";							}
 
 - (void)awakeFromNib {
 

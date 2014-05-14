@@ -11,7 +11,7 @@
 @interface 						TBPost (Scripting)
 
 - (NSScriptObjectSpecifier*) objectSpecifier;
-- (NSTextStorage*) markdownContentForScripting;
-- (NSTextStorage*) HTMLContentForScripting;
+- 			   (NSTextStorage*) markdownContentForScripting;
+- 				(NSTextStorage*) HTMLContentForScripting;
 
 @end

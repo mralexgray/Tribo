@@ -14,12 +14,11 @@
 
 @implementation AZWelcomeWindowController
 
-- (id)initWithWindow:(NSWindow*)window
-{
-    self = [super initWithWindow:window];
-    if (self) {
-        // Initialization code here.
-    }
+- (id)init	{
+		NSWindow *w = AZBORDLESSWINDOWINIT(AZCenteredRect(AZSizeFromDimension(200), AZScreenFrameUnderMenu()));
+    self = [super initWithWindow:w];
+
+		[self.window.contentView zLayer].bgC = cgBLUE;
     return self;
 }
 

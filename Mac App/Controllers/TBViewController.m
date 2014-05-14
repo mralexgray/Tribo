@@ -1,25 +1,33 @@
+//- (void) viewDidLoad 	{ }
+//- (void) loadView			{	[super loadView];	} //[super viewDidLoad];	}
 
-#import "TBViewController.h"
 #import "AZWebPreviewViewController.h"
+#import "TBViewController.h"
+
+@implementation TBAppDelegate
+
+- (BOOL)applicationShouldOpenUntitledFile:(NSAPP*)sender { return NO;  }
+
+- (void) applicationDidFinishLaunching:(NSNotification *)notification {
+
+			_wc = AZWelcomeWindowController.new;
+		[_wc.window makeKeyAndOrderFront:nil];
+}
+@end
 
 
 @implementation TBViewController
 
--   (id) init 				{	return self = [super initWithNibName:self.defaultNibName bundle:NSBundle.mainBundle];	}
+-   (id) init 				{ return self = [super initWithNibName:self.defaultNibName bundle:NSBundle.mainBundle]; }
 - (NSS*) defaultNibName { return self.className; }
-//- (void) viewDidLoad 	{ }
-//- (void) loadView			{	[super loadView];	} //[super viewDidLoad];	}
 @end
 
 
-@implementation NSView (Fake)
-
+@implementation NSView (FakeAce)
 - (ACEView*)aceView 	{  return self.window.aceView; } @end
 
-@implementation NSWindow (Fake)
-
-
-- (ACEView*)aceView { 	NSView *contentV = self.contentView;
+@implementation NSWindow (FakeAce)
+- (ACEView*) aceView 								{ 	NSView *contentV = self.contentView;
 
 	id __block (^find_recursor)(NSV*);								// first define the recursor
 	id         (^find_)			(NSV*) = ^id(NSV*topView){ 	// then define the block.
@@ -30,18 +38,12 @@
 			else if ( ( ace = find_recursor(subV) ) ) 						*stop = YES;
 		}];
 		return ace;
-	};	
-	__block ACEView* found = nil;	find_recursor = find_; // initialize the alias
-	
-	[contentV.subviews enumerateObjectsUsingBlock:^(id obj, NSUI idx, BOOL *stop) {
-		if ((found = find_(obj))) *stop = YES; // starts the block
-	}];
+	};	__block ACEView* found = nil;	find_recursor = find_; // initialize the alias	
+	// starts the block
+	[contentV.subviews enumerateObjectsUsingBlock:^(id obj, NSUI idx, BOOL *stop) { if ((found = find_(obj))) *stop = YES; }];
 	return found;
 }
-
-
-- (NSView*)subviewWithClass:(Class)klass {
-
+-  (NSView*) subviewWithClass:(Class)klass 	{
 
 	id __block (^find_recursor)(NSV*);								// first define the recursor
 	id         (^find_)			(NSV*) = ^id(NSV*topView){ 	// then define the block.
@@ -57,14 +59,13 @@
 	__block id found = nil;	find_recursor = find_; // initialize the alias
 	
 	return find_(self.contentView);
-	//subviews enumerateObjectsUsingBlock:^(id obj, NSUI idx, BOOL *stop) {
-//		if ((found = find_(obj))) *stop = YES; // starts the block
-//	}];
-//	return found;
 }
 
 @end
-
+//subviews enumerateObjectsUsingBlock:^(id obj, NSUI idx, BOOL *stop) {
+//		if ((found = find_(obj))) *stop = YES; // starts the block
+//	}];
+//	return found;
 //		id(^__block recursive)(NSV*) = ^id(NSV*v){  
 //		[v.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
 //			if (![obj ISKINDA:AZACEView.class]) return ace = obj, *stop = YES;

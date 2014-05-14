@@ -82,11 +82,10 @@
 - (void)webView:(WebView*)sender frame:(WebFrame*)frame exceededDatabaseQuotaForSecurityOrigin:(id) origin database:(NSString*)databaseIdentifier
 {
 	static const unsigned long long defaultQuota = 5 * 1024 * 1024;
-	if ([origin respondsToSelector: @selector(setQuota:)]) {
-		[origin performSelector:@selector(setQuota:) withObject:[NSNumber numberWithLongLong: defaultQuota]];
-	} else {
-		NSLog(@"could not increase quota for %llu", defaultQuota);
-	}
+	SEL setQuota = NSSelectorFromString(@"setQuota:");
+	if ([origin respondsToSelector: setQuota]) objc_msgSend(origin, setQuota, @(defaultQuota));
+//		[origin performSelector:@selector(setQuota:) withObject:[NSNumber numberWithLongLong: defaultQuota]];
+	else NSLog(@"could not increase quota for %llu", defaultQuota);
 }
 
 - (NSArray*)webView:(WebView*)sender contextMenuItemsForElement:(NSDictionary*)element defaultMenuItems:(NSArray*)defaultMenuItems

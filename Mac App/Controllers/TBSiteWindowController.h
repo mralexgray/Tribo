@@ -15,8 +15,7 @@
 #import "TBMacros.h"
 #import "NSResponder+TBAdditions.h"
 
-
-@interface 		TBSiteWindowController : NSWindowController <NSWindowDelegate>//,TBTabViewDelegate>//ACEViewDelegate>
+@interface 		TBSiteWindowController : NSWindowController <NSWindowDelegate>
 
 @property (weak) IBOutlet 				           NSView * accessoryView, * containerView, * currentView;
 @property (weak) IBOutlet 				  		 	  NSMenu * actionMenu;
@@ -31,18 +30,13 @@
 @property                    TBPublishSheetController * publishSheetController;
 @property           				 TBStatusViewController * statusViewController;
 
-
-@property (strong)					  					  NSA * viewControllers;
-@property (readonly)	 					 TBViewController * selectedViewController;
+@property  (readonly)						TBSiteDocument * siteDoc;
+@property    (strong)					  				  NSA * viewControllers;
+@property  (readonly)	 				 TBViewController * selectedViewController;
 @property (nonatomic)    			 				    NSUI   selectedViewControllerIndex;
 
 
-- (void) toggleStatusView;
-
-
-- (IBAction) switchToPosts:    (id)x;
-- (IBAction) switchToTemplates:(id)x;
-- (IBAction) switchToSources:  (id)x;
+-     (void) toggleStatusView;
 
 - (IBAction) showAddPostSheet: (id)x;
 
@@ -52,3 +46,8 @@
 - (IBAction) showSettingsSheet:(id)x;
 
 @end
+
+//- (IBAction) switchToPosts:    (id)x;
+//- (IBAction) switchToTemplates:(id)x;
+//- (IBAction) switchToSources:  (id)x;
+//,TBTabViewDelegate>//ACEViewDelegate>

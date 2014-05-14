@@ -29,18 +29,20 @@
 	NSS* s = [NSS stringWithContentsOfURL:URL encoding:NSUTF8StringEncoding error:nil];
 //	XX([self string]);
 	XX(self.frame);
-	[self setString: s];
+	[self setStringValue: s];
 
 }
 //- (NSS*) evaluate:(NSS*)script {
 //
 //	return [self performString:@"stringByEvaluatingJavaScriptOnMainThreadFromString:" withObject:script];
 //}
-- (ACEMode) mode {   return ACEModeHandlebars;
+//- (ACEMode) mode {
+
+//	return ACEModeHandlebars;
 //	NSString *m = [self evaluate:@"editor.getSession().session.getMode();"];
 //	XX(m);
 //	return [ACEModeNames modeFromString:m];
-}
+//}
 - (void) textDidChange:(NSNotification*)notification {
 	NSLog(@"%s", __PRETTY_FUNCTION__);
 }

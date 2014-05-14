@@ -18,7 +18,7 @@ static void eventCallback (	     ConstFSEventStreamRef eStrRf,  void *cbkInfo, s
 }
 
 - (id)initForURLs:(NSA*)URLs changesHandler:(TBFileWatcherChangesHandler)changesHandler {
-	if (self != super.init) return nil;
+	self = super.init;
 	_URLs = [URLs copy];
 	_changesHandler = [changesHandler copy];
 	[self cza_createEventStream];

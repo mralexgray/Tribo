@@ -6,9 +6,6 @@
 //  Copyright (c) 2012 Opt-6 Products, LLC. All rights reserved.
 //
 
-#import "TBPage+LiveReload.h"
-
-@implementation TBPage (LiveReload)
 
 /** 	TBLIVERELODJS:
 
@@ -946,6 +943,9 @@ CustomEvents.bind(document, 'LiveReloadShutDown', function() {
 		var port=location.host.split(':')[1];if(port)document.write('<script src="http://'+location.host +'/livereload.js?port='+port+'"></'+'script>')
 	</script>
 */
+#import "TBPage+LiveReload.h"
+
+@implementation TBPage (LiveReload)
 
 - (NSS*)livereload { return AZAPPBUNDLE.infoDictionary[@"TBLiveReloadSnippet"];	}
 

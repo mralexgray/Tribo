@@ -1,104 +1,68 @@
 
-//@property (nonatomic) NSMA *tabs;
-//- (void) tabReceivedMouseUp:  (TBTab*)tab;
-
+#define HEIGHT size.height
+#define WIDTH  size.width
+#define OX  origin.x
+#define OY  origin.y
 
 #import "TBTabView.h"
 #import <QuartzCore/QuartzCore.h>
 
+@implementation 								TBTab
 
-@implementation TBTab
+-    (id) initWithFrame:(NSRect)f 		{	if (!(self = [super initWithFrame:f])) return nil;
 
-- (id)initWithFrame:(NSRect)frame {	if (!(self = [super initWithFrame:frame])) return nil;
-
-	self.alignment = NSCenterTextAlignment;
-	self.editable = NO;
-	self.drawsBackground = NO;
-	self.textColor = [NSColor controlTextColor];
-	[self.cell setBordered:NO];
-	[self.cell setBackgroundStyle:NSBackgroundStyleRaised];
-	[self.cell setFont:AtoZ.controlFont];	// boldSystemFontOfSize:11.0]];
-	return self;
+	self.alignment 					= NSCenterTextAlignment;
+	self.editable 						= NO;
+	self.drawsBackground 			= NO;
+	self.textColor 					= BLACK;
+	[self.cell setBordered		   : NO];
+	[self.cell setBackgroundStyle : NSBackgroundStyleRaised];
+	[self.cell setFont				: AtoZ.controlFont];									return self;
 }
-- (void) drawRect:(NSRect)dirtyRect {
-
-	if (self.clicked)	NSRectFillWithColor(dirtyRect, [RED alpha:.8]);
-	[super drawRect:dirtyRect];
+-  (void) drawRect:  	(NSRect)dRect 	{ 
 	
+	NSRectFillWithColor(dRect,self.clicked ? self.backgroundColor : [self.backgroundColor colorWithBrightnessMultiplier:3]);	
+	[super drawRect:dRect]; 
 }
-+ (Class)cellClass {	return [TBVerticallyCenteredTextFieldCell class];	}
-
-- (void)mouseDown:(NSEvent*)theEvent {
-
-//	((TBTabView*)self.superview).tabReceivedMouseDown(((TBTabView*)self.superview), self); }
-	[((TBTabView*)self.superview) tabReceivedMouseDown:self];
-//- (void)mouseUp:(NSEvent*)theEvent {
-//	TBTabView *tabView = (TBTabView*)self.superview;
-//	[tabView tabReceivedMouseUp:self];
-}
-
+-  (void) mouseDown:    (NSEvent*)e 	{ [((TBTabView*)self.superview) tabReceivedMouseDown:self]; }
++ (Class) cellClass 							{ return [TBVerticallyCenteredTextFieldCell class];	}
 @end
 
-@implementation TBVerticallyCenteredTextFieldCell
-
-- (NSRect)titleRectForBounds:(NSRect)theRect {	NSRect titleFrame = [super titleRectForBounds:theRect];
-	titleFrame.origin.y = theRect.origin.y + (theRect.size.height - self.attributedStringValue.size.height) / 2.0;
-	return titleFrame;
+@implementation 										TBVerticallyCenteredTextFieldCell
+-  (NSR) titleRectForBounds:	 (NSR)r 			{	NSRect titFrame = [super titleRectForBounds:r];
+	titFrame.OY = r.OY + (r.HEIGHT - self.attributedStringValue.HEIGHT) / 2.0;				return titFrame;
 }
-
-- (void)drawInteriorWithFrame:(NSRect)cellFrame inView:(NSView*)controlView {
-	[super drawInteriorWithFrame:[self titleRectForBounds:cellFrame] inView:controlView];
-}
-
+- (void) drawInteriorWithFrame:(NSRect)cF 
+								inView:(NSView*)cV 	{ [super drawInteriorWithFrame:[self titleRectForBounds:cF] inView:cV]; }
 @end
 
-@implementation TBTabView
+@implementation 										TBTabView
+-   (void) setTitles:(NSA*)titles 				{	CGF  tabWidth 	= ceil(self.width/titles.count);
 
-- (void)setTitles:(NSA*)titles {
-
-//	self.tabs 		= NSMA.new;
-	CGF  tabWidth 	= ceil(self.width/titles.count),
-		  tabHeight = self.height;
 	self.subviews 	= [titles nmap:^id(NSS*title, NSUI idx) {
-		TBTab *tab 	= [TBTab.alloc initWithFrame:NSMakeRect(idx * tabWidth, 0, tabWidth, tabHeight)];
+	
+		TBTab *tab 				= [TBTab.alloc initWithFrame:NSMakeRect(idx * tabWidth, 0, tabWidth, self.height)];
 		tab.target 		 		= self;
 		tab.stringValue 		= title;
-		tab.autoresizingMask = 	!idx ? NSViewWidthSizable|NSViewMaxXMargin
-									:  idx == titles.count - 1 ? NSViewWidthSizable|NSViewMinXMargin
-									:	NSViewWidthSizable|NSViewMinXMargin|NSViewMaxXMargin;
+		tab.backgroundColor  = @[RED, ORANGE, YELLOW, GREEN, BLUE, GRAY4][idx];
+		tab.autoresizingMask = !idx 							? NSViewWidthSizable|NSViewMaxXMargin
+									: idx == titles.count - 1 	? NSViewWidthSizable|NSViewMinXMargin
+																		: NSViewWidthSizable|NSViewMinXMargin|NSViewMaxXMargin;
 		return tab;
 	}];
 	[self setNeedsDisplay:YES];
 }
-
-//- (void)setSelectedIndex:(NSUInteger)selectedIndex {
-//	_selectedIndex = selectedIndex;
-//	[self setNeedsDisplay:YES];
-//	[self.delegate tabView:self didSelectIndex:selectedIndex];
-//}
-
-- (TBTab*) selectedTab { id x = [self.subviews filterOne:^BOOL(TBTab*t){ return t.clicked; }];
-
-	if (!x) {  x = self.subviews[0];  [x setClicked:YES]; } return x;
+- (TBTab*) selectedTab 								{ //  filterOne:^BOOL(TBTab*t){ return t.clicked; }]
+	NSLog(@"self.subviews: %@", self.subviews);
+	return [self.subviews firstObjectWithValue:@YES forKeyPath:@"clicked"] ?: ^{ [self.subviews[0] setClicked:YES]; return self.subviews[0]; }();
 }
-
-- (void)tabReceivedMouseDown:(TBTab*)tab {
-
+-   (void) tabReceivedMouseDown:(TBTab*)tab 	{
 
 	[self.subviews setValue:@NO forKeyPath:@"clicked"];
 	tab.clicked = YES;
 	[self setNeedsDisplay:YES];
-	if (self.tabReceivedMouseDown) self.tabReceivedMouseDown(self, tab);
-	///	[self.delegate tabView:self didSelectIndex:[self.subviews indexOfObject:tab]];
+	if (self.tabReceivedMouseDown) self.tabReceivedMouseDown(self,tab); //[self.delegate tabView:self didSelectIndex:[self.subviews indexOfObject:tab]];
 }
-
-//	_clickedTab = tab;
-//- (void)tabReceivedMouseUp:(TBTab*)tab {
-//	_clickedTab = nil;
-//	NSUInteger index = [self.subviews indexOfObject:tab];
-//	self.selectedIndex = index;
-//}
-
 - (void)drawRect:(NSRect)rect {	CGF  numberOfTabs = self.subviews.count; if (!numberOfTabs) return;
 
 
@@ -154,4 +118,23 @@
 }
 
 @end
+//	_clickedTab = tab;
+//- (void)tabReceivedMouseUp:(TBTab*)tab {
+//	_clickedTab = nil;
+//	NSUInteger index = [self.subviews indexOfObject:tab];
+//	self.selectedIndex = index;
+//}
+
+//	((TBTabView*)self.superview).tabReceivedMouseDown(((TBTabView*)self.superview), self); }
+//- (void)mouseUp:(NSEvent*)theEvent {
+//	TBTabView *tabView = (TBTabView*)self.superview;
+//	[tabView tabReceivedMouseUp:self];
+//@property (nonatomic) NSMA *tabs;
+//- (void) tabReceivedMouseUp:  (TBTab*)tab;
+
+//- (void)setSelectedIndex:(NSUInteger)selectedIndex {
+//	_selectedIndex = selectedIndex;
+//	[self setNeedsDisplay:YES];
+//	[self.delegate tabView:self didSelectIndex:selectedIndex];
+//}
 

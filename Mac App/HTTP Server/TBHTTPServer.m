@@ -11,7 +11,7 @@
 #import "TBWebSocket.h"
 
 @implementation TBHTTPServer
-- (id)init {	if (self != super.init) return nil; 	self.connectionClass = TBSocketConnection.class; return self; }
+- (id)init {	self = super.init; self.connectionClass = TBSocketConnection.class; return self; }
 
 - (void)refreshPages {
 

@@ -7,20 +7,25 @@
 //  See the included License.md file.
 //
 #import <ACEView/ACEView.h>
+#import "AZWelcomeWindowController.h"
+
+
+@interface TBAppDelegate : NSObject <NSApplicationDelegate>
+@property AZWelcomeWindowController *wc;
+@end
 
 
 @class 		 					 TBSiteDocument ;
 @interface 					  TBViewController : NSVC
 @property (nonatomic,weak)  TBSiteDocument * document;
 @property (readonly) 					   NSS * defaultNibName;
-
+@property (readonly)					  ACEView * aceView;
 @end
 
-@interface NSWindow (Fake)
+@interface   NSWindow (FakeAce)
 -     (NSV*) subviewWithClass:(Class)k;
 - (ACEView*) aceView;
 @end
-
 
 //-      (void) viewDidLoad;
 //@protocol TBViewProtocol <NSObject>

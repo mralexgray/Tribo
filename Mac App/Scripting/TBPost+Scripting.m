@@ -11,8 +11,8 @@
 
 @implementation TBPost (Scripting)
 
-- (NSScriptObjectSpecifier*)objectSpecifier 	{ return [self.site objectSpecifierForPost:self];							}
-- (NSTextStorage*)markdownContentForScripting 	{ return [NSTextStorage.alloc initWithString:self.markdownContent];	}
-- (NSTextStorage*)HTMLContentForScripting 		{ return [NSTextStorage.alloc initWithString:self.content]; 			}
+- (NSScriptObjectSpecifier*) objectSpecifier 				{ return [self.site objectSpecifierForPost:self];							}
+-			   (NSTextStorage*) markdownContentForScripting { return [NSTextStorage.alloc initWithString:self.markdownContent];	}
+-           (NSTextStorage*) HTMLContentForScripting 		{ return [NSTextStorage.alloc initWithString:self.content]; 			}
 
 @end
