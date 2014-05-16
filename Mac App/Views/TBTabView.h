@@ -1,3 +1,4 @@
+@import AtoZ;
 
 @interface 										TBTab : NSTextField	
 @property BOOL clicked;														@end

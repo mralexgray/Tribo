@@ -1,3 +1,4 @@
+@import AtoZ;
 //
 //  TBPostsViewController.m
 //  Tribo
@@ -37,7 +38,9 @@
 	self.postTableView.doubleAction = @selector(editPost:);
 }
 
-- (void) tableViewSelectionDidChange:(NSNotification*)notification {  AZTALK(@"vageen");
+- (void) tableViewSelectionDidChange:(NSNotification*)notification {
+
+//AZTALK(@"vageen");
 
 //	NSA * assets = [_assetTree.selectedObjects vFKP:@"URL"];
 //	NSURL 	* u = assets[0];

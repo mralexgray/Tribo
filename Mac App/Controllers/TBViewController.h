@@ -8,6 +8,7 @@
 //
 #import <ACEView/ACEView.h>
 #import "AZWelcomeWindowController.h"
+@import AtoZ;
 
 
 @interface TBAppDelegate : NSObject <NSApplicationDelegate>
@@ -23,7 +24,7 @@
 @end
 
 @interface   NSWindow (FakeAce)
--     (NSV*) subviewWithClass:(Class)k;
+-     (NSView*) subviewWithClass:(Class)k;
 - (ACEView*) aceView;
 @end
 

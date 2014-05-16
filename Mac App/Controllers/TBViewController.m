@@ -29,11 +29,11 @@
 @implementation NSWindow (FakeAce)
 - (ACEView*) aceView 								{ 	NSView *contentV = self.contentView;
 
-	id __block (^find_recursor)(NSV*);								// first define the recursor
-	id         (^find_)			(NSV*) = ^id(NSV*topView){ 	// then define the block.
+	id __block (^find_recursor)(NSView*);								// first define the recursor
+	id         (^find_)			(NSView*) = ^id(NSView*topView){ 	// then define the block.
 
 		if ([topView ISKINDA:ACEView.class]) return topView;	__block ACEView* ace = nil;
-		[topView.subviews enumerateObjectsUsingBlock:^(NSV* subV, NSUI idx, BOOL *stop) {
+		[topView.subviews enumerateObjectsUsingBlock:^(NSView* subV, NSUI idx, BOOL *stop) {
 			if 	  ( [subV ISKINDA: ACEView.class] ) ace 	= (id)subV, *stop = YES;
 			else if ( ( ace = find_recursor(subV) ) ) 						*stop = YES;
 		}];
@@ -45,12 +45,12 @@
 }
 -  (NSView*) subviewWithClass:(Class)klass 	{
 
-	id __block (^find_recursor)(NSV*);								// first define the recursor
-	id         (^find_)			(NSV*) = ^id(NSV*topView){ 	// then define the block.
+	id __block (^find_recursor)(NSView*);								// first define the recursor
+	id         (^find_)			(NSView*) = ^id(NSView*topView){ 	// then define the block.
 
 		if ([topView ISKINDA:klass]) return topView;
 		__block id foundView = nil;
-		[topView.subviews enumerateObjectsUsingBlock:^(NSV* subV, NSUI idx, BOOL *stop) {
+		[topView.subviews enumerateObjectsUsingBlock:^(NSView* subV, NSUI idx, BOOL *stop) {
 			if 	  ( [subV ISKINDA:klass] ) foundView = (id)subV, *stop = YES;
 			else if ( ( foundView = find_recursor(subV) ) ) 		 *stop = YES;
 		}];
@@ -66,7 +66,7 @@
 //		if ((found = find_(obj))) *stop = YES; // starts the block
 //	}];
 //	return found;
-//		id(^__block recursive)(NSV*) = ^id(NSV*v){  
+//		id(^__block recursive)(NSView*) = ^id(NSView*v){  
 //		[v.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
 //			if (![obj ISKINDA:AZACEView.class]) return ace = obj, *stop = YES;
 //			else [sum addObject:obj]; else [sum addObjectsFromArray:[obj sublayersRecursive]];

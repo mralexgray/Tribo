@@ -17,7 +17,8 @@
 	self.textColor 					= BLACK;
 	[self.cell setBordered		   : NO];
 	[self.cell setBackgroundStyle : NSBackgroundStyleRaised];
-	[self.cell setFont				: AtoZ.controlFont];									return self;
+	[self.cell setFont				: @"UbuntuMono"];//AtoZ.controlFont];
+  return self;
 }
 -  (void) drawRect:  	(NSRect)dRect 	{ 
 	

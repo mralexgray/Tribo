@@ -1,3 +1,4 @@
+@import AtoZ;
 //
 //  TBSocketConnection.m
 //  Tribo
@@ -8,7 +9,7 @@
 
 #import "TBSocketConnection.h"
 #import "TBWebSocket.h"
-//#import "HTTPDataResponse.h"
+#import "HTTPDataResponse.h"
 
 @interface TBSocketConnection () <WebSocketDelegate>
 @property WebSocket *socket;

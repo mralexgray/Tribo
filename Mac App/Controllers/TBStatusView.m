@@ -8,6 +8,7 @@
 //
 
 #import "TBStatusView.h"
+@import AtoZ;
 
 @interface TBStatusView ()
 @property (nonatomic) NSColor *aquaTopColor, 		*aquaBottomColor, 	*aquaBorderColor, 

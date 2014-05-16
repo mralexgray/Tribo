@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Opt-6 Products, LLC. All rights reserved.
 //
 
+@import AtoZ;
 #import "TBWebSocket.h"
 
 @implementation TBWebSocket

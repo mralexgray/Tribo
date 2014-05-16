@@ -7,6 +7,7 @@
 //
 
 #import "AZWelcomeWindowController.h"
+@import AtoZ;
 
 @interface AZWelcomeWindowController ()
 
@@ -15,10 +16,11 @@
 @implementation AZWelcomeWindowController
 
 - (id)init	{
-		NSWindow *w = AZBORDLESSWINDOWINIT(AZCenteredRect(AZSizeFromDimension(200), AZScreenFrameUnderMenu()));
-    self = [super initWithWindow:w];
-
-		[self.window.contentView zLayer].bgC = cgBLUE;
+//  self = super.init;
+//  self.window =
+  self = [super initWithWindow:[NSW windowWithFrame:AZCenteredRect(AZSizeFromDim(200), AZScreenFrameUnderMenu()) mask:2]];
+//AZBORDLESSWINDOWINIT(
+		[[self.window.contentView layer] setBackgroundColor: cgBLUE];
     return self;
 }
 

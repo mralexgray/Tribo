@@ -1,4 +1,5 @@
 
+@import AtoZ;
 #import "TBSiteWindowController.h"
 
 const NSEdgeInsets TBAccessoryViewInsets = {	.top = 0.0,	.right = 4.0	};
@@ -11,8 +12,8 @@ const NSEdgeInsets TBAccessoryViewInsets = {	.top = 0.0,	.right = 4.0	};
 
 - (void) awakeFromNib {
 		
-	NSV   * themeFrame 	= [self.window.contentView superview];
-	_accessoryView.frame = (NSR){{ 	themeFrame.width  - _accessoryView.width  - TBAccessoryViewInsets.right, 
+	NSView* themeFrame 	= [self.window.contentView superview];
+	_accessoryView.frame = (NSRect){{ 	themeFrame.width  - _accessoryView.width  - TBAccessoryViewInsets.right,
 												themeFrame.height - _accessoryView.height - TBAccessoryViewInsets.top }, 
 																		{ _accessoryView.width,  	      _accessoryView.height }};
 	
@@ -33,8 +34,8 @@ const NSEdgeInsets TBAccessoryViewInsets = {	.top = 0.0,	.right = 4.0	};
 
 	self.containerView.subviews = [_viewControllers map:^id(id obj) {
 		[obj setValue:self.document forKey:@"document"];
-		[[obj view] setFrame:startRect];
-		[[obj view] setAutoresizingMask:NSSIZEABLE];		
+		[(NSView*)[obj view] setFrame:startRect];
+		[(NSView*)[obj view] setAutoresizingMask:NSSIZEABLE];
 		startRect.origin.x += startRect.size.width;
 		return [obj view];
 	}];
@@ -74,7 +75,7 @@ const NSEdgeInsets TBAccessoryViewInsets = {	.top = 0.0,	.right = 4.0	};
 	};
 
 	
-	_leftRight.dividerDrawingHandler = ^(NSRect dividerRect) { NSRectFillWithColor(dividerRect,RED); };
+	_leftRight.dividerDrawingHandler = ^(NSRect dividerRect) { NSRectFillWithColor(dividerRect,[NSColor redColor]); };
 	
 	self.aceView.highlightActiveLine 			=
 	self.aceView.wrappingBehavioursEnabled 	=

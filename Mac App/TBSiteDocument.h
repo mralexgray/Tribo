@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 The Tribo Authors.
 //  See the included License.md file.
 //
-
+@import AtoZ;
 #import "TBSiteWindowController.h"
 #import "TBNewSiteSheetController.h"
 #import "TBSite.h"
