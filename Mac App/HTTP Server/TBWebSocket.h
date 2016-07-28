@@ -6,7 +6,9 @@
 //  Copyright (c) 2012 Opt-6 Products, LLC. All rights reserved.
 //
 
-#import "WebSocket.h"
+//#import "WebSocket.h"
+
+@import CocoaHTTPServer;
 
 @interface TBWebSocket : WebSocket
 

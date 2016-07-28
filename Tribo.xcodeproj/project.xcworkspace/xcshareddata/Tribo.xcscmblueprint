@@ -1,0 +1,65 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9767E9502B1D422E62DD906B7242FE96429C4FD1",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "9635D08B964B59C48EA8E6805E0CB50B3BAF24BE" : 0,
+    "9767E9502B1D422E62DD906B7242FE96429C4FD1" : 0,
+    "20FDB5E31A3A8BD07EF046E8EE01E98F71919869" : 0,
+    "4AA3EE4ECF43F453606335C4B92162CC20D042C7" : 0,
+    "378B54B5205DE31B3B2EBDA14687C757C53E503B" : 0,
+    "9EDEC795D04B3E279370B0DA5F4D246DCDBD8B6C" : 0,
+    "2C24E71BD6B652D2E9C8B3B377447DB446A63C04" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "169373B3-7EF8-421E-B0F9-59B84E684744",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "9635D08B964B59C48EA8E6805E0CB50B3BAF24BE" : "Tribo\/Dependencies\/Sundown\/",
+    "9767E9502B1D422E62DD906B7242FE96429C4FD1" : "Tribo\/",
+    "20FDB5E31A3A8BD07EF046E8EE01E98F71919869" : "Tribo\/Dependencies\/CurlHandle\/",
+    "4AA3EE4ECF43F453606335C4B92162CC20D042C7" : "Tribo\/Dependencies\/ACEView\/ace\/",
+    "378B54B5205DE31B3B2EBDA14687C757C53E503B" : "Tribo\/Dependencies\/ACEView\/",
+    "9EDEC795D04B3E279370B0DA5F4D246DCDBD8B6C" : "Tribo\/Dependencies\/GRMustache\/",
+    "2C24E71BD6B652D2E9C8B3B377447DB446A63C04" : "Tribo\/Dependencies\/ACEView\/KFURLBar\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Tribo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Tribo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:CarterA\/CurlHandle.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "20FDB5E31A3A8BD07EF046E8EE01E98F71919869"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/mralexgray\/KFURLBar.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2C24E71BD6B652D2E9C8B3B377447DB446A63C04"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/mralexgray\/ACEView.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "378B54B5205DE31B3B2EBDA14687C757C53E503B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/mralexgray\/ace",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4AA3EE4ECF43F453606335C4B92162CC20D042C7"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/CarterA\/sundown.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9635D08B964B59C48EA8E6805E0CB50B3BAF24BE"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/mralexgray\/Tribo.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9767E9502B1D422E62DD906B7242FE96429C4FD1"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/groue\/GRMustache.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9EDEC795D04B3E279370B0DA5F4D246DCDBD8B6C"
+    }
+  ]
+}

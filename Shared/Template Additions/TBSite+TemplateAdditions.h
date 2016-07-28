@@ -11,9 +11,9 @@ Template additions contain properties designed to be accessed by templates.
 @class                  TBPost ;
 @interface 					TBSite   (TemplateAdditions)
 
-@property (NATOM,RONLY) TBPost * latestPost;
-@property (NATOM,RONLY) 	NSA * recentPosts;
-@property (NATOM,RONLY) 	NSS * XMLDate,
+@property (RO) TBPost * latestPost;
+@property (RO) 	NSA * recentPosts;
+@property (RO) 	NSS * XMLDate,
 										 * baseURL,
 										 * author,
 										 * name;

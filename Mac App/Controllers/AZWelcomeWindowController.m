@@ -20,7 +20,7 @@
 //  self.window =
   self = [super initWithWindow:[NSW windowWithFrame:AZCenteredRect(AZSizeFromDim(200), AZScreenFrameUnderMenu()) mask:2]];
 //AZBORDLESSWINDOWINIT(
-		[[self.window.contentView layer] setBackgroundColor: cgBLUE];
+		[[(NSView*)self.window.contentView layer] setBackgroundColor: cgBLUE];
     return self;
 }
 

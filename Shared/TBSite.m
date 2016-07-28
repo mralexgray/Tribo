@@ -85,7 +85,7 @@
 	if (!(postsDirectoryContents = [AZFILEMANAGER contentsOfDirectoryAtURL:self.postsDirectory includingPropertiesForKeys:nil  options:NSDirectoryEnumerationSkipsHiddenFiles error:error]))
 		return NO;
 		
-	NSA* posts = [postsDirectoryContents cw_mapArray:^id(NSURL *postURL){
+	NSA* posts = [postsDirectoryContents map:^id(NSURL *postURL){
 		
 		TBPost *post = [TBPost postWithURL:postURL inSite:self error:error];
 		if (post) [post parseMarkdownContent];

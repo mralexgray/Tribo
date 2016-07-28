@@ -11,11 +11,12 @@
 #import "TBWebSocket.h"
 
 @implementation TBHTTPServer
+
 - (id)init {	self = super.init; self.connectionClass = TBSocketConnection.class; return self; }
 
 - (void)refreshPages {
 
-	[webSockets makeObjectsPerformSelector:@selector(sendMessage:)
-										withObject:@"{ \"command\": \"reload\", \"path\": \"/\", \"liveCSS\": true }"];
+//	[webSockets makeObjectsPerformSelector:@selector(sendMessage:)
+//										withObject:@"{ \"command\": \"reload\", \"path\": \"/\", \"liveCSS\": true }"];
 }
 @end

@@ -9,18 +9,23 @@
 
 #import "TBSocketConnection.h"
 #import "TBWebSocket.h"
-#import "HTTPDataResponse.h"
+@import CocoaHTTPServer;
+
+//#import "HTTPDataResponse.h"
+
 
 @interface TBSocketConnection () <WebSocketDelegate>
-@property WebSocket *socket;
+@property (readwrite) TBWebSocket *socket;
 @end
 
 @implementation TBSocketConnection
 
 - (WebSocket*)webSocketForURI:(NSString*)path {
 
-	return [path isEqualToString:@"/livereload"] ? (self.socket = [TBWebSocket.alloc initWithRequest:request socket:asyncSocket])
-																: [super webSocketForURI:path];
+//	return [path isEqualToString:@"/livereload"]
+//       ? (self.socket = [TBWebSocket.alloc initWithRequest:request socket:asyncSocket])
+//       :
+       return  [super webSocketForURI:path];
 }
 
 - (NSObject <HTTPResponse>*)httpResponseForMethod:(NSS*)method URI:(NSS*)path {

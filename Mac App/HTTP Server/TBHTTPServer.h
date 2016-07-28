@@ -6,7 +6,8 @@
 //  Copyright (c) 2012 Opt-6 Products, LLC. All rights reserved.
 //
 
-#import "HTTPServer.h"
+@import CocoaHTTPServer;
+
 //@import AtoZ;
 @interface TBHTTPServer : HTTPServer
 - (void)refreshPages;

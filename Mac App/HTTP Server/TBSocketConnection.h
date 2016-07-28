@@ -6,7 +6,10 @@
 //  Copyright (c) 2012 Opt-6 Products, LLC. All rights reserved.
 //
 
-#import "HTTPConnection.h"
+@import CocoaHTTPServer.HTTPConnection;
+#import "TBWebSocket.h"
+
 
 @interface TBSocketConnection : HTTPConnection
+@property (readonly) TBWebSocket *socket;
 @end
